@@ -5,7 +5,7 @@
 # git push gitee master
 
 # 2.打包
-npm run src:build
+npm run build
 
 cd dist
 # 3.发布到gh-pages分支
@@ -26,7 +26,7 @@ git pull github master
 git push github master
 
 # 2.打包
-npm run src:build
+npm run build
 
 # 3.进入打包目录
 cd dist
