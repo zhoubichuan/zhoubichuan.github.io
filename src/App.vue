@@ -26,7 +26,7 @@
           default-active="/base"
           class="el-menu-vertical-demo"
         >
-          <li style="text-align:center;line-height:50px;">xxxx系统</li>
+          <li style="text-align: center; line-height: 50px">xxxx系统</li>
           <el-menu-item-group
             :title="menus.title"
             v-for="(menus, index) in menusData"
@@ -45,6 +45,7 @@
         <router-view v-show="$route.name" />
         <div id="sub1" v-show="!$route.name"></div>
         <div id="sub2" v-show="!$route.name"></div>
+        <div id="resume" v-show="!$route.name"></div>
       </el-main>
     </el-container>
   </el-container>
@@ -69,28 +70,41 @@ let defaultData = [
 ];
 export default defineComponent({
   setup() {
-    const options = [
-      {
-        value: "vue",
-        label: "vue相关项目",
-        children: [
+    let microOptions = JSON.parse(localStorage.microOptions || "{}");
+    const options = Array.isArray(microOptions)
+      ? microOptions
+      : [
           {
-            value: "sub1",
-            label: "sub1",
+            value: "vue",
+            label: "vue相关项目",
+            children: [
+              {
+                value: "sub1",
+                label: "sub1",
+              },
+            ],
           },
-        ],
-      },
-      {
-        value: "react",
-        label: "react相关项目",
-        children: [
           {
-            value: "sub2",
-            label: "sub2",
+            value: "react",
+            label: "react相关项目",
+            children: [
+              {
+                value: "sub2",
+                label: "sub2",
+              },
+            ],
           },
-        ],
-      },
-    ];
+          {
+            value: "vue2.x",
+            label: "vue2.x相关项目",
+            children: [
+              {
+                value: "resume",
+                label: "resume",
+              },
+            ],
+          },
+        ];
     let menusData = defaultData;
     const data = reactive({
       formInline: {
@@ -127,6 +141,20 @@ export default defineComponent({
             },
             {
               index: "/sub2/about2",
+              title: "页面2",
+            },
+          ],
+        },
+        {
+          title: "resume项目菜单",
+          key: "resume",
+          menuItem: [
+            {
+              index: "/resume",
+              title: "页面1",
+            },
+            {
+              index: "/resume/about2",
               title: "页面2",
             },
           ],
