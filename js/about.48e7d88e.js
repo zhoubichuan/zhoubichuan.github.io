@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{f820:function(e,t,n){"use strict";n.r(t);var c=n("7a23"),o={class:"about"},a=Object(c["createElementVNode"])("h1",null,"这里是基座about页面，页面基于vue3.x开发",-1),u=[a];function r(e,t){return Object(c["openBlock"])(),Object(c["createElementBlock"])("div",o,u)}var b=n("6b0d"),l=n.n(b);const s={},d=l()(s,[["render",r]]);t["default"]=d}}]);
+//# sourceMappingURL=about.48e7d88e.js.map
