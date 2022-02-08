@@ -30,7 +30,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "resume",
-    entry: "/resume/",
+    entry: "https://zhoubichuan.github.io/resume/",
     activeRule: "resume",
     container: "#resume",
     props: {
