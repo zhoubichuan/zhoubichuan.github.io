@@ -2,7 +2,7 @@ let microRoutes = JSON.parse(localStorage.micro || '{}')
 const microApps = Array.isArray(microRoutes) ? microRoutes : [
   {
     name: "sub1",
-    entry: "http://localhost:5501",
+    entry: "/sub1/",
     activeRule: "sub1",
     container: "#sub1",
     props: {
@@ -16,7 +16,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "sub2",
-    entry: "http://localhost:5052",
+    entry: "/sub2/",
     activeRule: "sub2",
     container: "#sub2",
     props: {
@@ -30,7 +30,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "resume",
-    entry: "/resume",
+    entry: "/resume/",
     activeRule: "resume",
     container: "#resume",
     props: {
