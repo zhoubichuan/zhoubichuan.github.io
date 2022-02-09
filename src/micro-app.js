@@ -4,7 +4,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
     name: "sub1",
     entry: "/sub1/",
     activeRule: "sub1",
-    container: "#sub1",
+    container: "#subapp",
     props: {
       data: '来自基座的数据1',
       fns: [
@@ -18,7 +18,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
     name: "sub2",
     entry: "/sub2/",
     activeRule: "sub2",
-    container: "#sub2",
+    container: "#subapp",
     props: {
       data: '来自基座的数据2',
       fns: [
@@ -30,9 +30,9 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "resume",
-    entry: "https://zhoubichuan.github.io/resume/",
+    entry: "https://zhoubichuan.github.io",
     activeRule: "resume",
-    container: "#resume",
+    container: "#subapp",
     props: {
       data: '来自基座的数据2',
       fns: [

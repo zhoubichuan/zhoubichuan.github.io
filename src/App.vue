@@ -43,9 +43,7 @@
       </el-aside>
       <el-main>
         <router-view v-show="$route.name" />
-        <div id="sub1" v-show="!$route.name"></div>
-        <div id="sub2" v-show="!$route.name"></div>
-        <div id="resume" v-show="!$route.name"></div>
+        <div id="subapp" v-show="!$route.name"></div>
       </el-main>
     </el-container>
   </el-container>
