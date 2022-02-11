@@ -6,10 +6,12 @@
         height="40"
         style="margin-top: 10px; margin-right: 100px"
         alt="Vue logo"
-        src="./assets/logo.png" />
+        src="./assets/logo.png"
+      />
       <el-form :inline="true" :model="formInline">
         <el-form-item label="选择子项目">
           <el-cascader
+            :disabled="formInline.all"
             :options="options"
             @change="handleSelect"
             :show-all-levels="false"
@@ -17,8 +19,12 @@
         </el-form-item>
         <el-form-item label="显示菜单">
           <el-switch v-model="formInline.user"></el-switch>
-        </el-form-item> </el-form
-    ></el-header>
+        </el-form-item>
+        <el-form-item label="显示全部菜单">
+          <el-switch v-model="formInline.all"></el-switch>
+        </el-form-item>
+      </el-form>
+    </el-header>
     <el-container>
       <el-aside width="200px" v-if="formInline.user">
         <el-menu
@@ -49,7 +55,7 @@
   </el-container>
 </template>
 <script>
-import { reactive, toRefs, defineComponent } from "vue";
+import { reactive, toRefs, defineComponent, computed } from "vue";
 let defaultData = [
   {
     title: "",
@@ -62,6 +68,50 @@ let defaultData = [
       {
         index: "/base/about",
         title: "About",
+      },
+    ],
+  },
+];
+let targetArr = [
+  {
+    title: "sub1项目菜单",
+    key: "sub1",
+    menuItem: [
+      {
+        index: "/sub1",
+        title: "页面1",
+      },
+      {
+        index: "/sub1/about1",
+        title: "页面2",
+      },
+    ],
+  },
+  {
+    title: "sub2项目菜单",
+    key: "sub2",
+    menuItem: [
+      {
+        index: "/sub2",
+        title: "页面1",
+      },
+      {
+        index: "/sub2/about2",
+        title: "页面2",
+      },
+    ],
+  },
+  {
+    title: "resume项目菜单",
+    key: "resume",
+    menuItem: [
+      {
+        index: "/resume",
+        title: "页面1",
+      },
+      {
+        index: "/resume/about2",
+        title: "页面2",
       },
     ],
   },
@@ -103,67 +153,32 @@ export default defineComponent({
             ],
           },
         ];
-    let menusData = defaultData;
     const data = reactive({
       formInline: {
         user: true,
+        all: true,
         region: "",
       },
       options,
-      menusData,
+    });
+    let menusData = computed(() => {
+      if (data.formInline.all) {
+        return JSON.parse(JSON.stringify(defaultData)).concat(targetArr);
+      } else {
+        return defaultData;
+      }
     });
     const handleSelect = (val) => {
       data.menusData = defaultData;
-      let targetArr = [
-        {
-          title: "sub1项目菜单",
-          key: "sub1",
-          menuItem: [
-            {
-              index: "/sub1",
-              title: "页面1",
-            },
-            {
-              index: "/sub1/about1",
-              title: "页面2",
-            },
-          ],
-        },
-        {
-          title: "sub2项目菜单",
-          key: "sub2",
-          menuItem: [
-            {
-              index: "/sub2",
-              title: "页面1",
-            },
-            {
-              index: "/sub2/about2",
-              title: "页面2",
-            },
-          ],
-        },
-        {
-          title: "resume项目菜单",
-          key: "resume",
-          menuItem: [
-            {
-              index: "/resume",
-              title: "页面1",
-            },
-            {
-              index: "/resume/about2",
-              title: "页面2",
-            },
-          ],
-        },
-      ];
-      let target = targetArr.filter((item) => item.key === val[val.length - 1]);
+      let target = JSON.parse(JSON.stringify(targetArr)).filter(
+        (item) => item.key === val[val.length - 1]
+      );
       data.menusData = data.menusData.concat(target);
     };
     return {
       ...toRefs(data),
       handleSelect,
+      menusData,
     };
   },
 });

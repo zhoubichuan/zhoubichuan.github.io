@@ -1,8 +1,9 @@
 let microRoutes = JSON.parse(localStorage.micro || '{}')
+const url = `https://zhoubichuan.${location.href.includes('gitee') ? 'github' : 'gitee'}.io`
 const microApps = Array.isArray(microRoutes) ? microRoutes : [
   {
     name: "sub1",
-    entry: "/sub1/",
+    entry: url + "/sub1/",
     activeRule: "sub1",
     container: "#subapp",
     props: {
@@ -16,7 +17,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "sub2",
-    entry: "/sub2/",
+    entry: url + "/sub2/",
     activeRule: "sub2",
     container: "#subapp",
     props: {
@@ -30,7 +31,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "resume",
-    entry: "https://zhoubichuan.github.io",
+    entry: url + "/resume/",
     activeRule: "resume",
     container: "#subapp",
     props: {
