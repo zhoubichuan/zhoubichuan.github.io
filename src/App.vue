@@ -106,11 +106,11 @@ let targetArr = [
     key: "resume",
     menuItem: [
       {
-        index: "/resume",
+        index: "/child-resume",
         title: "页面1",
       },
       {
-        index: "/resume/about3",
+        index: "/child-resume/about3",
         title: "页面2",
       },
     ],
