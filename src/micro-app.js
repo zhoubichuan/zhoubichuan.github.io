@@ -1,5 +1,4 @@
 let microRoutes = JSON.parse(localStorage.micro || '{}')
-console.log(url, 'urlurlurl')
 const microApps = Array.isArray(microRoutes) ? microRoutes : [
   {
     name: "sub1",
