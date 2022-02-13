@@ -30,7 +30,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "resume",
-    entry: "/resume/",
+    entry: "/resume/child-resume/",
     activeRule: "/child-resume",
     container: "#subapp",
     props: {
@@ -41,7 +41,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
         }
       ]
     }
-  },
+  }
 ];
 const apps = ui => microApps.map((item) => {
   item.props.ui = ui
