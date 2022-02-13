@@ -48,9 +48,6 @@ const apps = ui => microApps.map((item) => {
   item.props.ui = ui
   return {
     ...item,
-    // props: {
-    //   routerBase: item.activeRule,
-    // },
   };
 });
 export default apps
