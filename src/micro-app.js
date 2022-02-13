@@ -34,7 +34,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
     name: "resume",
     entry: url + "/resume/",
     // entry: 'http://localhost:8090/resume/',
-    activeRule: "/resume",
+    activeRule: "/child-resume",
     container: "#subapp",
     props: {
       data: '来自基座的数据2',
