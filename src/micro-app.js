@@ -1,5 +1,4 @@
 let microRoutes = JSON.parse(localStorage.micro || '{}')
-const url = `//zhoubichuan.${location.href.includes('gitee') ? 'github' : 'gitee'}.io`
 console.log(url, 'urlurlurl')
 const microApps = Array.isArray(microRoutes) ? microRoutes : [
   {
@@ -32,7 +31,7 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "resume",
-    entry: url + "/resume/",
+    entry: "/resume/",
     // entry: 'http://localhost:8090/resume/',
     activeRule: "/child-resume",
     container: "#subapp",
