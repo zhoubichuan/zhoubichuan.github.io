@@ -1,4 +1,5 @@
 let microRoutes = JSON.parse(localStorage.micro || '{}')
+const url = `https://zhoubichuan.${location.href.includes('gitee') ? 'github' : 'gitee'}.io`
 const microApps = Array.isArray(microRoutes) ? microRoutes : [
   {
     name: "sub1",
@@ -30,8 +31,9 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   },
   {
     name: "resume",
-    entry: "/resume/child-resume/",
-    activeRule: "/child-resume",
+    entry: url + "/resume/",
+    // entry: 'http://localhost:8090/resume/',
+    activeRule: "/resume",
     container: "#subapp",
     props: {
       data: '来自基座的数据2',
