@@ -1,5 +1,6 @@
 let microRoutes = JSON.parse(localStorage.micro || '{}')
-const url = `https://zhoubichuan.${location.href.includes('gitee') ? 'github' : 'gitee'}.io`
+const url = `//zhoubichuan.${location.href.includes('gitee') ? 'github' : 'gitee'}.io`
+console.log(url, 'urlurlurl')
 const microApps = Array.isArray(microRoutes) ? microRoutes : [
   {
     name: "sub1",
