@@ -74,17 +74,13 @@ let defaultData = [
 ];
 let targetArr = [
   {
-    title: "sub1项目菜单",
-    key: "sub1",
+    title: "jump项目菜单",
+    key: "jump",
     menuItem: [
       {
-        index: "/sub1",
+        index: "/jump",
         title: "页面1",
-      },
-      {
-        index: "/sub1/about1",
-        title: "页面2",
-      },
+      }
     ],
   },
   {
@@ -123,12 +119,12 @@ export default defineComponent({
       ? microOptions
       : [
           {
-            value: "vue",
-            label: "vue相关项目",
+            value: "js",
+            label: "js相关项目",
             children: [
               {
-                value: "sub1",
-                label: "sub1",
+                value: "jump",
+                label: "jump",
               },
             ],
           },

@@ -3,9 +3,9 @@ const url = `//zhoubichuan.${location.href.includes('gitee') ? 'github' : 'gitee
 console.log(url, 'urlurlurl')
 const microApps = Array.isArray(microRoutes) ? microRoutes : [
   {
-    name: "sub1",
-    entry: "/sub1/",
-    activeRule: "/child-sub1",
+    name: "jump",
+    entry: "/jump/",
+    activeRule: "/jump",
     container: "#subapp",
     props: {
       data: '来自基座的数据1',
@@ -33,7 +33,6 @@ const microApps = Array.isArray(microRoutes) ? microRoutes : [
   {
     name: "resume",
     entry: "/resume/",
-    // entry: 'http://localhost:8090/resume/',
     activeRule: "/resume",
     container: "#subapp",
     props: {
