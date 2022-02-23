@@ -83,6 +83,16 @@ let targetArr = [
       }
     ],
   },
+    {
+    title: "froce项目菜单",
+    key: "force",
+    menuItem: [
+      {
+        index: "/force",
+        title: "页面1",
+      }
+    ],
+  },
   {
     title: "sub2项目菜单",
     key: "sub2",
