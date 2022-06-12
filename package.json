@@ -1,7 +1,11 @@
 {
-  "name": "base",
-  "version": "0.1.0",
-  "private": true,
+  "main": "zhoubicuan",
+  "private": false,
+  "keywords": [],
+  "description": "描述",
+  "author": "zhoubichuan",
+  "name": "zhoubichuan",
+  "version": "1.1.0",
   "scripts": {
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
@@ -13,7 +17,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "element-plus": "^1.3.0-beta.5",
+    "element-plus": "^2.1.11",
     "qiankun": "^2.6.3",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
