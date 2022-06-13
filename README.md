@@ -1,24 +1,9 @@
-# base
+# 技术图谱
 
-## Project setup
-```
-npm install
-```
+## 前端
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+![](./src/assets/main.jpg)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 后端
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 运维
