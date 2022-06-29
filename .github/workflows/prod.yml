@@ -19,9 +19,9 @@ jobs:
       - name: copy file  via ssh key
         uses: appleboy/scp-action@master
         with:
-          source: "prod/*"
+          source: "dist/*"
           host: ${{ secrets.HOST }}
-          target: "/usr/src/zhoubichuan/"
+          target: "/usr/src/zhoubichuan/prod/"
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}

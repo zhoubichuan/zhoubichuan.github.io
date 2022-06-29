@@ -7,7 +7,7 @@ git push gitee master
 # 2.打包
 npm run build
 
-cd prod
+cd dist
 # 3.发布到gh-pages分支
 git init
 git checkout --orphan gh-pages
