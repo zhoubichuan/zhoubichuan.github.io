@@ -25,4 +25,4 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
-          rm: true
+          strip_components: 1
