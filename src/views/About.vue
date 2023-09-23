@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>这里是基座about页面，页面基于vue3.x开发</h1>
+    <div class="title">学习文档</div>
     <div class="content">
       <a href="https://zhoubichuan.github.io/web-vue/">vue</a>
       <a href="https://zhoubichuan.github.io/web-react/">react</a>
@@ -63,12 +63,18 @@
   </div>
 </template>
 <style>
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+  padding-bottom: 20px;
+}
 a {
-  width: 20%;
+  width: 25%;
   min-width: 100px;
   display: block;
   float: left;
   line-height: 40px;
-  text-align: left;
+  text-align: center;
 }
 </style>
