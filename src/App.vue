@@ -154,6 +154,14 @@ export default defineComponent({
               title: "页面1",
             },
             {
+              index: "/resume/demo",
+              title: "demo案例",
+            },
+            {
+              index: "/resume/echarts",
+              title: "echats案例",
+            },
+            {
               index: "/resume/about2",
               title: "页面2",
             },
