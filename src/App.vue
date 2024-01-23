@@ -67,7 +67,11 @@ let defaultData = [
       },
       {
         index: "/base/about",
-        title: "About",
+        title: "资料",
+      },
+      {
+        index: "/base/project",
+        title: "项目",
       },
     ],
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="title">学习文档</div>
+    <div class="title">项目资料</div>
     <div class="content">
       <div class="box" v-for="(item, index) in options" :key="index">
         <a :href="item.link">
@@ -23,143 +23,123 @@ export default defineComponent({
     const options = [
       {
         image: "",
-        link: "/web-vue/",
-        label: "Vue2.x资料",
+        link: "/jump/",
+        label: "微信跳一跳",
       },
       {
         image: "",
-        link: "/web-react/",
-        label: "React资料",
+        link: "/resume/",
+        label: "我的简历",
       },
       {
         image: "",
-        link: "/web-webpack/",
-        label: "Webpack资料",
+        link: "/classroom/",
+        label: "我的课堂",
       },
       {
         image: "",
-        link: "/web-ionic/",
-        label: "Ionic资料",
+        link: "/website/",
+        label: "我的网站",
       },
       {
         image: "",
-        link: "/web-rollup/",
-        label: "Rollup资料",
+        link: "/antdpro-demo/",
+        label: "数据管理系统",
       },
       {
         image: "",
-        link: "/web-electorn/",
-        label: "Electorn",
+        link: "/abstract-umi/",
+        label: "abstract-umi",
       },
       {
         image: "",
-        link: "/web-elementui/",
-        label: "ElementUI",
+        link: "/abstract-react/",
+        label: "abstract-react",
       },
       {
         image: "",
-        link: "/web-openlayers/",
-        label: "Openlayers",
+        link: "/abstract-vue/",
+        label: "abstract-vue",
       },
       {
         image: "",
-        link: "/web-cesium/",
-        label: "Cesium",
+        link: "/order/",
+        label: "我的菜单",
       },
       {
         image: "",
-        link: "/web-three/",
-        label: "Three.js",
+        link: "/umi-blog/",
+        label: "我的博客",
       },
       {
         image: "",
-        link: "/web-webgl/",
-        label: "Webgl",
+        link: "/wechat-react/",
+        label: "wechat-react",
       },
       {
         image: "",
-        link: "/web-mysql/",
-        label: "MySql",
+        link: "/wechat-vue/",
+        label: "wechat-vue",
       },
       {
         image: "",
-        link: "/web-nginx/",
-        label: "Nginx",
+        link: "/flybird/",
+        label: "飞鸟游戏",
       },
       {
         image: "",
-        link: "/web-redis/",
-        label: "Redis",
+        link: "/elementsell/",
+        label: "外卖",
       },
       {
         image: "",
-        link: "/web-mongodb/",
-        label: "MongoDB",
+        link: "/force/",
+        label: "力图",
       },
       {
         image: "",
-        link: "/web-browser/",
-        label: "Browser",
+        link: "/managment/",
+        label: "managment",
       },
       {
         image: "",
-        link: "/web-arithmetic/",
-        label: "arithmetic",
+        link: "/zhoubichuan-vue-ui/",
+        label: "vue-ui",
       },
       {
         image: "",
-        link: "/web-javascript/",
-        label: "JavaScript",
+        link: "/zhoubichuan-react-ui/",
+        label: "react-ui",
       },
       {
         image: "",
-        link: "/web-typescript/",
-        label: "TypeScript",
+        link: "/smart-agriculture/",
+        label: "智慧农业",
       },
       {
         image: "",
-        link: "/web-mobile/",
-        label: "Mobile",
+        link: "/agricultural-iot/",
+        label: "农机iot",
       },
       {
         image: "",
-        link: "/web-node/",
-        label: "node",
+        link: "/agricultural-machinery-network/",
+        label: "农机车联网",
       },
       {
         image: "",
-        link: "/web-devops/",
-        label: "DevOps",
+        link: "/agricultural-smart-farm/",
+        label: "智慧农业-农场",
       },
       {
         image: "",
-        link: "/web-docker/",
-        label: "Docker",
+        link: "/agricultural-smart-dispatch/",
+        label: "智慧农业-调度",
       },
       {
         image: "",
-        link: "/web-tools/",
-        label: "tools",
-      },
-      {
-        image: "",
-        link: "/web-koa/",
-        label: "Koa",
-      },
-      {
-        image: "",
-        link: "/web-express/",
-        label: "Express",
-      },
-      {
-        image: "",
-        link: "/web-egg/",
-        label: "Egg",
-      },
-      {
-        image: "",
-        link: "/web-java/",
-        label: "Java",
+        link: "/agricultural-smart-source/",
+        label: "智慧农业-溯源",
       },
     ];
     const data = reactive({
