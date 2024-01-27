@@ -13,14 +13,14 @@ const routes = [
   },
   {
     path: '/base/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    name: 'Information',
+    component: () => import(/* webpackChunkName: "Information" */ '../views/Information.vue')
   },
-  {
-    path: '/base/project',
-    name: 'Project',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Project.vue')
-  }
+  // {
+  //   path: '/base/project',
+  //   name: 'Project',
+  //   component: () => import(/* webpackChunkName: "Project" */ '../views/Project.vue')
+  // }
 ]
 
 const router = createRouter({

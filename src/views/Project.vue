@@ -113,8 +113,8 @@ export default defineComponent({
       },
       {
         image: "",
-        link: "/smart-agriculture/",
-        label: "智慧农业",
+        link: "/agricultural-machinery-working/",
+        label: "农机作业",
       },
       {
         image: "",
@@ -128,8 +128,23 @@ export default defineComponent({
       },
       {
         image: "",
+        link: "/agricultural-smart/",
+        label: "智慧农业",
+      },
+      {
+        image: "",
         link: "/agricultural-smart-farm/",
         label: "智慧农业-农场",
+      },
+      {
+        image: "",
+        link: "/agricultural-smart-condition/",
+        label: "智慧农业-农情",
+      },
+      {
+        image: "",
+        link: "/agricultural-smart-water/",
+        label: "智慧农业-灌溉",
       },
       {
         image: "",
