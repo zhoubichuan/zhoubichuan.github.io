@@ -2,16 +2,18 @@
   <div class="about">
     <div class="title">学习文档</div>
     <div class="content">
-      <div class="box" v-for="(item, index) in options" :key="index">
-        <a :href="item.link">
-          <img
-            width="40"
-            height="40"
-            style="margin-top: 10px"
-            src="../assets/logo.png"
-          />
-          <span>{{ item.label }}</span>
-        </a>
+      <div class="wrapper" v-for="(item, index) in options" :key="index">
+        <div class="box" v-for="(child, i) in item" :key="i">
+          <a :href="child.link">
+            <img
+              width="40"
+              height="40"
+              style="margin-top: 10px"
+              src="../assets/logo.png"
+            />
+            <span>{{ child.label }}</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -21,149 +23,210 @@ import { reactive, toRefs, defineComponent } from "vue";
 export default defineComponent({
   setup() {
     const options = [
+      [
+        {
+          image: "",
+          link: "/web-javascript/",
+          label: "javascript",
+        },
+        {
+          image: "",
+          link: "/web-arithmetic/",
+          label: "arithmetic",
+        },
+        {
+          image: "",
+          link: "/web-typescript/",
+          label: "typescript",
+        },
+        {
+          image: "",
+          link: "/web-browser/",
+          label: "browser",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-vue2/",
+          label: "vue2.x",
+        },
+        {
+          image: "",
+          link: "/web-elementui/",
+          label: "elementui",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-vue3/",
+          label: "vue3.x",
+        },
+        {
+          image: "",
+          link: "/web-elementplus/",
+          label: "elementplus",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-react/",
+          label: "react",
+        },
+        {
+          image: "",
+          link: "/web-antd/",
+          label: "antd",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-webpack/",
+          label: "webpack",
+        },
+        {
+          image: "",
+          link: "/web-vite/",
+          label: "vite",
+        },
+        {
+          image: "",
+          link: "/web-gulp/",
+          label: "gulp",
+        },
+        {
+          image: "",
+          link: "/web-rollup/",
+          label: "rollup",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-echarts/",
+          label: "echarts",
+        },
+        {
+          image: "",
+          link: "/web-openlayers/",
+          label: "openlayers",
+        },
+        {
+          image: "",
+          link: "/web-cesium/",
+          label: "cesium",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-redis/",
+          label: "redis",
+        },
+        {
+          image: "",
+          link: "/web-mysql/",
+          label: "mysql",
+        },
+        {
+          image: "",
+          link: "/web-mongodb/",
+          label: "mongodb",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-node/",
+          label: "node",
+        },
+        {
+          image: "",
+          link: "/web-express/",
+          label: "express",
+        },
+        {
+          image: "",
+          link: "/web-koa/",
+          label: "koa",
+        },
+
+        {
+          image: "",
+          link: "/web-egg/",
+          label: "egg",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-ionic/",
+          label: "ionic",
+        },
+        {
+          image: "",
+          link: "/web-electorn/",
+          label: "electorn",
+        },
+        {
+          image: "",
+          link: "/web-mobile/",
+          label: "mobile",
+        },
+      ],
+      [
       {
-        image: "",
-        link: "/web-vue/",
-        label: "Vue2.x资料",
-      },
-      {
-        image: "",
-        link: "/web-react/",
-        label: "React资料",
-      },
-      {
-        image: "",
-        link: "/web-webpack/",
-        label: "Webpack资料",
-      },
-      {
-        image: "",
-        link: "/web-ionic/",
-        label: "Ionic资料",
-      },
-      {
-        image: "",
-        link: "/web-rollup/",
-        label: "Rollup资料",
-      },
-      {
-        image: "",
-        link: "/web-electorn/",
-        label: "Electorn",
-      },
-      {
-        image: "",
-        link: "/web-elementui/",
-        label: "ElementUI",
-      },
-      {
-        image: "",
-        link: "/web-openlayers/",
-        label: "Openlayers",
-      },
-      {
-        image: "",
-        link: "/web-cesium/",
-        label: "Cesium",
-      },
-      {
-        image: "",
-        link: "/web-three/",
-        label: "Three.js",
-      },
-      {
-        image: "",
-        link: "/web-webgl/",
-        label: "Webgl",
-      },
-      {
-        image: "",
-        link: "/web-mysql/",
-        label: "MySql",
-      },
-      {
-        image: "",
-        link: "/web-nginx/",
-        label: "Nginx",
-      },
-      {
-        image: "",
-        link: "/web-redis/",
-        label: "Redis",
-      },
-      {
-        image: "",
-        link: "/web-mongodb/",
-        label: "MongoDB",
-      },
-      {
-        image: "",
-        link: "/web-browser/",
-        label: "Browser",
-      },
-      {
-        image: "",
-        link: "/web-arithmetic/",
-        label: "arithmetic",
-      },
-      {
-        image: "",
-        link: "/web-javascript/",
-        label: "JavaScript",
-      },
-      {
-        image: "",
-        link: "/web-typescript/",
-        label: "TypeScript",
-      },
-      {
-        image: "",
-        link: "/web-mobile/",
-        label: "Mobile",
-      },
-      {
-        image: "",
-        link: "/web-node/",
-        label: "node",
-      },
-      {
-        image: "",
-        link: "/web-devops/",
-        label: "DevOps",
-      },
-      {
-        image: "",
-        link: "/web-docker/",
-        label: "Docker",
-      },
-      {
-        image: "",
-        link: "/web-tools/",
-        label: "tools",
-      },
-      {
-        image: "",
-        link: "/web-koa/",
-        label: "Koa",
-      },
-      {
-        image: "",
-        link: "/web-express/",
-        label: "Express",
-      },
-      {
-        image: "",
-        link: "/web-egg/",
-        label: "Egg",
-      },
-      {
-        image: "",
-        link: "/web-java/",
-        label: "Java",
-      },
+          image: "",
+          link: "/web-webgl/",
+          label: "webgl",
+        },
+        {
+          image: "",
+          link: "/web-d3/",
+          label: "d3.js",
+        },
+        {
+          image: "",
+          link: "/web-three/",
+          label: "three.js",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-devops/",
+          label: "devops",
+        },
+        {
+          image: "",
+          link: "/web-nginx/",
+          label: "nginx",
+        },
+        {
+          image: "",
+          link: "/web-docker/",
+          label: "docker",
+        },
+        {
+          image: "",
+          link: "/web-tools/",
+          label: "tools",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-java/",
+          label: "java",
+        },
+      ],
     ];
+    localStorage.informationNames = JSON.stringify(options);
     const data = reactive({
-      options,
+      options: JSON.parse(localStorage.informationNames),
     });
 
     return {
@@ -178,6 +241,12 @@ export default defineComponent({
   font-weight: bold;
   line-height: 40px;
   padding-bottom: 20px;
+}
+.wrapper {
+  border: 1px solid red;
+  border-radius: 5px;
+  height: 90px;
+  margin: 10px;
 }
 .box {
   width: 25%;

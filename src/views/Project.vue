@@ -157,8 +157,9 @@ export default defineComponent({
         label: "智慧农业-溯源",
       },
     ];
+    localStorage.projectNames = JSON.stringify(options);
     const data = reactive({
-      options,
+      options: JSON.parse(localStorage.projectNames),
     });
 
     return {
