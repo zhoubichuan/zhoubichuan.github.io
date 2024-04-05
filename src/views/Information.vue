@@ -104,6 +104,11 @@ export default defineComponent({
         },
       ],
       [
+      {
+          image: "",
+          link: "/web-zrender/",
+          label: "zrender",
+        },
         {
           image: "",
           link: "/web-echarts/",
