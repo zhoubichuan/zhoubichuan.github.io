@@ -2,8 +2,12 @@
   <div class="home">
     <HelloWorld msg="这里是基座Home页面，页面基于vue3.x开发" />
     <img src="../assets/main.jpg" alt="知识图谱" />
-    <a href="https://beian.miit.gov.cn/" target="_blank">备案号：</a>  
-    <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2022012824号-1</a>
+    <div>
+      <a href="https://beian.miit.gov.cn/" target="_blank">备案号：</a>
+      <a href="https://beian.miit.gov.cn/" target="_blank"
+        >鄂ICP备2022012824号-1</a
+      >
+    </div>
   </div>
 </template>
 
