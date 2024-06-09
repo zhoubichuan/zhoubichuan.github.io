@@ -227,6 +227,11 @@ export default defineComponent({
           link: "/web-java/",
           label: "java",
         },
+        {
+          image: "",
+          link: "/web-rust/",
+          label: "rust",
+        },
       ],
     ];
     localStorage.informationNames = JSON.stringify(options);
