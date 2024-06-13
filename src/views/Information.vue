@@ -26,23 +26,30 @@ export default defineComponent({
       [
         {
           image: "",
+          link: "/web-html/",
+          label: "html",
+        },
+        {
+          image: "",
+          link: "/web-css/",
+          label: "css",
+        },
+        {
+          image: "",
           link: "/web-javascript/",
           label: "javascript",
         },
         {
           image: "",
-          link: "/web-arithmetic/",
-          label: "arithmetic",
-        },
-        {
-          image: "",
-          link: "/web-typescript/",
-          label: "typescript",
-        },
-        {
-          image: "",
           link: "/web-browser/",
-          label: "browser",
+          label: "浏览器",
+        },
+      ],
+      [
+        {
+          image: "",
+          link: "/web-arithmetic/",
+          label: "算法",
         },
       ],
       [
@@ -67,6 +74,11 @@ export default defineComponent({
           image: "",
           link: "/web-elementplus/",
           label: "elementplus",
+        },
+        {
+          image: "",
+          link: "/web-typescript/",
+          label: "typescript",
         },
       ],
       [
@@ -104,7 +116,7 @@ export default defineComponent({
         },
       ],
       [
-      {
+        {
           image: "",
           link: "/web-zrender/",
           label: "zrender",
@@ -178,12 +190,12 @@ export default defineComponent({
         },
         {
           image: "",
-          link: "/web-mobile/",
-          label: "mobile",
+          link: "/web-cordova/",
+          label: "cordova",
         },
       ],
       [
-      {
+        {
           image: "",
           link: "/web-webgl/",
           label: "webgl",
@@ -246,6 +258,29 @@ export default defineComponent({
 });
 </script>
 <style scoped>
+@media screen and (max-width: 768px) {
+  /* 移动端 */
+  .box {
+    width: 25%;
+    min-width: 80px;
+    display: block;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* 桌面端 */
+  .box {
+    width: 25%;
+    min-width: 100px;
+    display: block;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+  }
+}
 .title {
   font-size: 30px;
   font-weight: bold;
@@ -258,14 +293,7 @@ export default defineComponent({
   height: 90px;
   margin: 10px;
 }
-.box {
-  width: 25%;
-  min-width: 100px;
-  display: block;
-  float: left;
-  line-height: 40px;
-  text-align: center;
-}
+
 .box:hover {
   background-color: lightblue;
 }

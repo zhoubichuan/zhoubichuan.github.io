@@ -1,6 +1,6 @@
 <template>
   <el-container class="main">
-    <el-header>
+    <el-header class="head">
       <img
         width="40"
         height="40"
@@ -26,7 +26,7 @@
       </el-form>
     </el-header>
     <el-container>
-      <el-aside width="200px" v-if="formInline.user">
+      <el-aside class="menu" v-if="formInline.user">
         <el-menu
           :router="true"
           default-active="/base"
@@ -84,17 +84,17 @@ let targetArr = [
       {
         index: "/jump",
         title: "页面1",
-      }
+      },
     ],
   },
-    {
+  {
     title: "froce项目菜单",
     key: "force",
     menuItem: [
       {
         index: "/force",
         title: "页面1",
-      }
+      },
     ],
   },
   {
@@ -124,7 +124,7 @@ let targetArr = [
         title: "页面2",
       },
     ],
-  }
+  },
 ];
 export default defineComponent({
   setup() {
@@ -239,5 +239,30 @@ body > .el-container {
 }
 .el-form-item {
   margin-top: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  /* 移动端 */
+  .head {
+  }
+  .head .el-form {
+    display: none;
+  }
+  .menu {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* 桌面端 */
+  .head {
+  }
+  .head .el-form {
+    display: block;
+  }
+  .menu {
+    display: block;
+    width: "200px";
+  }
 }
 </style>
