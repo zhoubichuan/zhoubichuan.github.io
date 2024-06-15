@@ -2,17 +2,20 @@
   <div class="about">
     <div class="title">学习文档</div>
     <div class="content">
-      <div class="wrapper" v-for="(item, index) in options" :key="index">
-        <div class="box" v-for="(child, i) in item" :key="i">
-          <a :href="child.link">
-            <img
-              width="40"
-              height="40"
-              style="margin-top: 10px"
-              src="../assets/logo.png"
-            />
-            <span>{{ child.label }}</span>
-          </a>
+      <div v-for="(item, index) in options" :key="index">
+        <div class="desc">{{ item.desc }}</div>
+        <div class="wrapper">
+          <div class="box" v-for="(child, i) in item.data" :key="i">
+            <a :href="child.link">
+              <img
+                width="40"
+                height="40"
+                style="margin-top: 10px"
+                src="../assets/logo.png"
+              />
+              <span>{{ child.label }}</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -23,238 +26,277 @@ import { reactive, toRefs, defineComponent } from "vue";
 export default defineComponent({
   setup() {
     const options = [
-      [
-        {
-          image: "",
-          link: "/web-html/",
-          label: "html",
-        },
-        {
-          image: "",
-          link: "/web-css/",
-          label: "css",
-        },
-        {
-          image: "",
-          link: "/web-javascript/",
-          label: "javascript",
-        },
-        {
-          image: "",
-          link: "/web-browser/",
-          label: "浏览器",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-arithmetic/",
-          label: "算法",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-vue2/",
-          label: "vue2.x",
-        },
-        {
-          image: "",
-          link: "/web-elementui/",
-          label: "elementui",
-        },
-        {
-          image: "",
-          link: "/web-nuxt/",
-          label: "nuxt",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-vue3/",
-          label: "vue3.x",
-        },
-        {
-          image: "",
-          link: "/web-elementplus/",
-          label: "elementplus",
-        },
-        {
-          image: "",
-          link: "/web-typescript/",
-          label: "typescript",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-react/",
-          label: "react",
-        },
-        {
-          image: "",
-          link: "/web-antd/",
-          label: "antd",
-        },
-        {
-          image: "",
-          link: "/web-nuxt/",
-          label: "nuxt",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-webpack/",
-          label: "webpack",
-        },
-        {
-          image: "",
-          link: "/web-vite/",
-          label: "vite",
-        },
-        {
-          image: "",
-          link: "/web-gulp/",
-          label: "gulp",
-        },
-        {
-          image: "",
-          link: "/web-rollup/",
-          label: "rollup",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-zrender/",
-          label: "zrender",
-        },
-        {
-          image: "",
-          link: "/web-echarts/",
-          label: "echarts",
-        },
-        {
-          image: "",
-          link: "/web-openlayers/",
-          label: "openlayers",
-        },
-        {
-          image: "",
-          link: "/web-cesium/",
-          label: "cesium",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-redis/",
-          label: "redis",
-        },
-        {
-          image: "",
-          link: "/web-mysql/",
-          label: "mysql",
-        },
-        {
-          image: "",
-          link: "/web-mongodb/",
-          label: "mongodb",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-node/",
-          label: "node",
-        },
-        {
-          image: "",
-          link: "/web-express/",
-          label: "express",
-        },
-        {
-          image: "",
-          link: "/web-koa/",
-          label: "koa",
-        },
+      {
+        desc: "javascript",
+        data: [
+          {
+            image: "",
+            link: "/web-html/",
+            label: "html",
+          },
+          {
+            image: "",
+            link: "/web-css/",
+            label: "css",
+          },
+          {
+            image: "",
+            link: "/web-javascript/",
+            label: "javascript",
+          },
+          {
+            image: "",
+            link: "/web-browser/",
+            label: "浏览器",
+          },
+        ],
+      },
+      {
+        desc: "算法",
+        data: [
+          {
+            image: "",
+            link: "/web-arithmetic/",
+            label: "算法",
+          },
+        ],
+      },
+      {
+        desc: "vue2.x框架",
+        data: [
+          {
+            image: "",
+            link: "/web-vue2/",
+            label: "vue2.x",
+          },
+          {
+            image: "",
+            link: "/web-elementui/",
+            label: "elementui",
+          },
+          {
+            image: "",
+            link: "/web-nuxt/",
+            label: "nuxt",
+          },
+        ],
+      },
+      {
+        desc: "vue3.x框架",
+        data: [
+          {
+            image: "",
+            link: "/web-vue3/",
+            label: "vue3.x",
+          },
+          {
+            image: "",
+            link: "/web-elementplus/",
+            label: "elementplus",
+          },
+          {
+            image: "",
+            link: "/web-typescript/",
+            label: "typescript",
+          },
+        ],
+      },
+      {
+        desc: "react",
+        data: [
+          {
+            image: "",
+            link: "/web-react/",
+            label: "react",
+          },
+          {
+            image: "",
+            link: "/web-antd/",
+            label: "antd",
+          },
+          {
+            image: "",
+            link: "/web-nuxt/",
+            label: "nuxt",
+          },
+        ],
+      },
+      {
+        desc: "构建工具",
+        data: [
+          {
+            image: "",
+            link: "/web-webpack/",
+            label: "webpack",
+          },
+          {
+            image: "",
+            link: "/web-vite/",
+            label: "vite",
+          },
+          {
+            image: "",
+            link: "/web-gulp/",
+            label: "gulp",
+          },
+          {
+            image: "",
+            link: "/web-rollup/",
+            label: "rollup",
+          },
+        ],
+      },
+      {
+        desc: "可视化",
+        data: [
+          {
+            image: "",
+            link: "/web-zrender/",
+            label: "zrender",
+          },
+          {
+            image: "",
+            link: "/web-echarts/",
+            label: "echarts",
+          },
+          {
+            image: "",
+            link: "/web-openlayers/",
+            label: "openlayers",
+          },
+          {
+            image: "",
+            link: "/web-cesium/",
+            label: "cesium",
+          },
+        ],
+      },
+      {
+        desc: "数据库",
+        data: [
+          {
+            image: "",
+            link: "/web-redis/",
+            label: "redis",
+          },
+          {
+            image: "",
+            link: "/web-mysql/",
+            label: "mysql",
+          },
+          {
+            image: "",
+            link: "/web-mongodb/",
+            label: "mongodb",
+          },
+        ],
+      },
+      {
+        desc: "node.js",
+        data: [
+          {
+            image: "",
+            link: "/web-node/",
+            label: "node",
+          },
+          {
+            image: "",
+            link: "/web-express/",
+            label: "express",
+          },
+          {
+            image: "",
+            link: "/web-koa/",
+            label: "koa",
+          },
 
-        {
-          image: "",
-          link: "/web-egg/",
-          label: "egg",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-ionic/",
-          label: "ionic",
-        },
-        {
-          image: "",
-          link: "/web-electorn/",
-          label: "electorn",
-        },
-        {
-          image: "",
-          link: "/web-cordova/",
-          label: "cordova",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-webgl/",
-          label: "webgl",
-        },
-        {
-          image: "",
-          link: "/web-d3/",
-          label: "d3.js",
-        },
-        {
-          image: "",
-          link: "/web-three/",
-          label: "three.js",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-devops/",
-          label: "devops",
-        },
-        {
-          image: "",
-          link: "/web-nginx/",
-          label: "nginx",
-        },
-        {
-          image: "",
-          link: "/web-docker/",
-          label: "docker",
-        },
-        {
-          image: "",
-          link: "/web-tools/",
-          label: "tools",
-        },
-      ],
-      [
-        {
-          image: "",
-          link: "/web-java/",
-          label: "java",
-        },
-        {
-          image: "",
-          link: "/web-rust/",
-          label: "rust",
-        },
-      ],
+          {
+            image: "",
+            link: "/web-egg/",
+            label: "egg",
+          },
+        ],
+      },
+      {
+        desc: "移动端",
+        data: [
+          {
+            image: "",
+            link: "/web-ionic/",
+            label: "ionic",
+          },
+          {
+            image: "",
+            link: "/web-electorn/",
+            label: "electorn",
+          },
+          {
+            image: "",
+            link: "/web-cordova/",
+            label: "cordova",
+          },
+        ],
+      },
+      {
+        desc: "图形学",
+        data: [
+          {
+            image: "",
+            link: "/web-webgl/",
+            label: "webgl",
+          },
+          {
+            image: "",
+            link: "/web-d3/",
+            label: "d3.js",
+          },
+          {
+            image: "",
+            link: "/web-three/",
+            label: "three.js",
+          },
+        ],
+      },
+      {
+        desc: "部署相关",
+        data: [
+          {
+            image: "",
+            link: "/web-devops/",
+            label: "devops",
+          },
+          {
+            image: "",
+            link: "/web-nginx/",
+            label: "nginx",
+          },
+          {
+            image: "",
+            link: "/web-docker/",
+            label: "docker",
+          },
+          {
+            image: "",
+            link: "/web-tools/",
+            label: "tools",
+          },
+        ],
+      },
+      {
+        desc: "其他",
+        data: [
+          {
+            image: "",
+            link: "/web-java/",
+            label: "java",
+          },
+          {
+            image: "",
+            link: "/web-rust/",
+            label: "rust",
+          },
+        ],
+      },
     ];
     localStorage.informationNames = JSON.stringify(options);
     const data = reactive({
@@ -296,6 +338,13 @@ export default defineComponent({
   font-weight: bold;
   line-height: 40px;
   padding-bottom: 20px;
+}
+.desc{
+  text-align: left;
+  height: 20px;
+  line-height: 20px;
+  text-indent: 10px;
+  padding-top: 10px;
 }
 .wrapper {
   border: 1px solid red;
