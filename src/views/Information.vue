@@ -27,6 +27,31 @@ export default defineComponent({
   setup() {
     const options = [
       {
+        desc: "开发工具",
+        data: [
+          {
+            image: "",
+            link: "/web-npm/",
+            label: "npm",
+          },
+          {
+            image: "",
+            link: "/web-git/",
+            label: "git",
+          },
+          {
+            image: "",
+            link: "/web-vscode/",
+            label: "vscode",
+          },
+          {
+            image: "",
+            link: "/web-browser/",
+            label: "浏览器",
+          },
+        ],
+      },
+      {
         desc: "javascript",
         data: [
           {
@@ -44,16 +69,6 @@ export default defineComponent({
             link: "/web-javascript/",
             label: "javascript",
           },
-          {
-            image: "",
-            link: "/web-browser/",
-            label: "浏览器",
-          },
-        ],
-      },
-      {
-        desc: "算法",
-        data: [
           {
             image: "",
             link: "/web-arithmetic/",
@@ -102,7 +117,7 @@ export default defineComponent({
         ],
       },
       {
-        desc: "react",
+        desc: "react框架",
         data: [
           {
             image: "",
@@ -147,52 +162,27 @@ export default defineComponent({
         ],
       },
       {
-        desc: "可视化",
+        desc: "移动端",
         data: [
           {
             image: "",
-            link: "/web-zrender/",
-            label: "zrender",
+            link: "/web-ionic/",
+            label: "ionic",
           },
           {
             image: "",
-            link: "/web-echarts/",
-            label: "echarts",
+            link: "/web-electorn/",
+            label: "electorn",
           },
           {
             image: "",
-            link: "/web-openlayers/",
-            label: "openlayers",
-          },
-          {
-            image: "",
-            link: "/web-cesium/",
-            label: "cesium",
+            link: "/web-cordova/",
+            label: "cordova",
           },
         ],
       },
       {
-        desc: "数据库",
-        data: [
-          {
-            image: "",
-            link: "/web-redis/",
-            label: "redis",
-          },
-          {
-            image: "",
-            link: "/web-mysql/",
-            label: "mysql",
-          },
-          {
-            image: "",
-            link: "/web-mongodb/",
-            label: "mongodb",
-          },
-        ],
-      },
-      {
-        desc: "node.js",
+        desc: "node后端",
         data: [
           {
             image: "",
@@ -218,42 +208,22 @@ export default defineComponent({
         ],
       },
       {
-        desc: "移动端",
+        desc: "数据库",
         data: [
           {
             image: "",
-            link: "/web-ionic/",
-            label: "ionic",
+            link: "/web-redis/",
+            label: "redis",
           },
           {
             image: "",
-            link: "/web-electorn/",
-            label: "electorn",
+            link: "/web-mysql/",
+            label: "mysql",
           },
           {
             image: "",
-            link: "/web-cordova/",
-            label: "cordova",
-          },
-        ],
-      },
-      {
-        desc: "图形学",
-        data: [
-          {
-            image: "",
-            link: "/web-webgl/",
-            label: "webgl",
-          },
-          {
-            image: "",
-            link: "/web-d3/",
-            label: "d3.js",
-          },
-          {
-            image: "",
-            link: "/web-three/",
-            label: "three.js",
+            link: "/web-mongodb/",
+            label: "mongodb",
           },
         ],
       },
@@ -283,6 +253,51 @@ export default defineComponent({
         ],
       },
       {
+        desc: "数据可视化",
+        data: [
+          {
+            image: "",
+            link: "/web-zrender/",
+            label: "zrender",
+          },
+          {
+            image: "",
+            link: "/web-echarts/",
+            label: "echarts",
+          },
+          {
+            image: "",
+            link: "/web-openlayers/",
+            label: "openlayers",
+          },
+          {
+            image: "",
+            link: "/web-cesium/",
+            label: "cesium",
+          },
+        ],
+      },
+      {
+        desc: "图形学",
+        data: [
+          {
+            image: "",
+            link: "/web-webgl/",
+            label: "webgl",
+          },
+          {
+            image: "",
+            link: "/web-d3/",
+            label: "d3.js",
+          },
+          {
+            image: "",
+            link: "/web-three/",
+            label: "three.js",
+          },
+        ],
+      },
+      {
         desc: "其他",
         data: [
           {
@@ -294,6 +309,11 @@ export default defineComponent({
             image: "",
             link: "/web-rust/",
             label: "rust",
+          },
+          {
+            image: "",
+            link: "/web-interview/",
+            label: "面试",
           },
         ],
       },
@@ -339,7 +359,7 @@ export default defineComponent({
   line-height: 40px;
   padding-bottom: 20px;
 }
-.desc{
+.desc {
   text-align: left;
   height: 20px;
   line-height: 20px;
