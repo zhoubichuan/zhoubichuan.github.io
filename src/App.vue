@@ -2,12 +2,26 @@
   <el-container class="main">
     <el-header class="head">
       <img
+        class="logo"
         width="40"
         height="40"
         style="margin-top: 10px; margin-right: 100px"
         alt="Vue logo"
         src="./assets/logo.png"
       />
+      <svg
+        @click="handleShow"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        role="img"
+        viewBox="0 0 448 512"
+        class="icon"
+      >
+        <path
+          fill="currentColor"
+          d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
+        ></path>
+      </svg>
       <el-form :inline="true" :model="formInline">
         <el-form-item label="选择子项目">
           <el-cascader
@@ -26,7 +40,7 @@
       </el-form>
     </el-header>
     <el-container>
-      <el-aside class="menu" v-if="formInline.user">
+      <el-aside :class="{ menu: true, show: show }" v-if="formInline.user">
         <el-menu
           :router="true"
           default-active="/base"
@@ -42,6 +56,7 @@
               v-for="(n, i) in menus.menuItem"
               :key="i"
               :index="n.index"
+              @click="handleShow"
               >{{ n.title }}</el-menu-item
             >
           </el-menu-item-group>
@@ -163,6 +178,7 @@ export default defineComponent({
             ],
           },
         ];
+
     const data = reactive({
       formInline: {
         user: true,
@@ -170,6 +186,7 @@ export default defineComponent({
         region: "",
       },
       options,
+      show: false,
     });
     let menusData = computed(() => {
       if (data.formInline.all) {
@@ -185,9 +202,13 @@ export default defineComponent({
       );
       data.menusData = data.menusData.concat(target);
     };
+    const handleShow = () => {
+      data.show = !data.show;
+    };
     return {
       ...toRefs(data),
       handleSelect,
+      handleShow,
       menusData,
     };
   },
@@ -245,17 +266,34 @@ body > .el-container {
   /* 移动端 */
   .head {
   }
+  .logo {
+    display: none;
+  }
+  .icon {
+    display: block;
+    width: 20px;
+  }
   .head .el-form {
     display: none;
   }
   .menu {
     display: none;
+    position: absolute;
+  }
+  .show {
+    display: block;
   }
 }
 
 @media screen and (min-width: 769px) {
   /* 桌面端 */
   .head {
+  }
+  .logo {
+    display: block;
+  }
+  .icon {
+    display: none;
   }
   .head .el-form {
     display: block;
