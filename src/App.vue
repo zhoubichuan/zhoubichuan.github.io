@@ -37,6 +37,9 @@
         <el-form-item label="显示全部菜单">
           <el-switch v-model="formInline.all"></el-switch>
         </el-form-item>
+        <el-form-item label="显示类型">
+          <el-input @input="handleChange" v-model="formInline.type"></el-input>
+        </el-form-item>
       </el-form>
     </el-header>
     <el-container>
@@ -84,13 +87,15 @@ let defaultData = [
         index: "/base/about",
         title: "资料",
       },
-      {
-        index: "/base/project",
-        title: "项目",
-      },
     ],
   },
 ];
+if (localStorage.projectType === "321456") {
+  defaultData[0].menuItem.push({
+    index: "/base/project",
+    title: "项目",
+  });
+}
 let targetArr = [
   {
     title: "jump项目菜单",
@@ -184,6 +189,7 @@ export default defineComponent({
         user: true,
         all: true,
         region: "",
+        type: localStorage.projectType || "",
       },
       options,
       show: false,
@@ -205,10 +211,14 @@ export default defineComponent({
     const handleShow = () => {
       data.show = !data.show;
     };
+    const handleChange = (val) => {
+      localStorage.projectType = val;
+    };
     return {
       ...toRefs(data),
       handleSelect,
       handleShow,
+      handleChange,
       menusData,
     };
   },

@@ -63,6 +63,11 @@ export default defineComponent({
           link: "/web-elementui/",
           label: "elementui",
         },
+        {
+          image: "",
+          link: "/web-nuxt/",
+          label: "nuxt",
+        },
       ],
       [
         {
@@ -91,6 +96,11 @@ export default defineComponent({
           image: "",
           link: "/web-antd/",
           label: "antd",
+        },
+        {
+          image: "",
+          link: "/web-nuxt/",
+          label: "nuxt",
         },
       ],
       [
