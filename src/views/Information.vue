@@ -42,12 +42,12 @@ export default defineComponent({
           {
             image: "",
             link: "/web-vscode/",
-            label: "vscode",
+            label: "ide",
           },
           {
             image: "",
             link: "/web-browser/",
-            label: "浏览器",
+            label: "chrome",
           },
         ],
       },
@@ -71,8 +71,8 @@ export default defineComponent({
           },
           {
             image: "",
-            link: "/web-arithmetic/",
-            label: "算法",
+            link: "/web-typescript/",
+            label: "typescript",
           },
         ],
       },
@@ -87,7 +87,7 @@ export default defineComponent({
           {
             image: "",
             link: "/web-elementui/",
-            label: "elementui",
+            label: "element",
           },
           {
             image: "",
@@ -107,13 +107,9 @@ export default defineComponent({
           {
             image: "",
             link: "/web-elementplus/",
-            label: "elementplus",
+            label: "element+",
           },
-          {
-            image: "",
-            link: "/web-typescript/",
-            label: "typescript",
-          },
+         
         ],
       },
       {
@@ -131,8 +127,8 @@ export default defineComponent({
           },
           {
             image: "",
-            link: "/web-nuxt/",
-            label: "nuxt",
+            link: "/web-next/",
+            label: "next",
           },
         ],
       },
@@ -162,7 +158,7 @@ export default defineComponent({
         ],
       },
       {
-        desc: "移动端",
+        desc: "客户端",
         data: [
           {
             image: "",
@@ -309,6 +305,11 @@ export default defineComponent({
             image: "",
             link: "/web-rust/",
             label: "rust",
+          },
+          {
+            image: "",
+            link: "/web-arithmetic/",
+            label: "算法",
           },
           {
             image: "",
