@@ -101,7 +101,7 @@ export default defineComponent({
         data: [
           {
             image: "",
-            link: "/web-vue3/",
+            link: "/web-vue3x/",
             label: "vue3.x",
           },
           {
