@@ -81,7 +81,7 @@ export default defineComponent({
         data: [
           {
             image: "",
-            link: "/web-vue2/",
+            link: "/web-vue2x/",
             label: "vue2.x",
           },
           {
