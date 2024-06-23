@@ -41,12 +41,12 @@ export default defineComponent({
           },
           {
             image: "",
-            link: "/web-vscode/",
+            link: "/web-ide/",
             label: "ide",
           },
           {
             image: "",
-            link: "/web-browser/",
+            link: "/web-chrome/",
             label: "chrome",
           },
         ],
@@ -323,7 +323,6 @@ export default defineComponent({
     const data = reactive({
       options: JSON.parse(localStorage.informationNames),
     });
-
     return {
       ...toRefs(data),
     };

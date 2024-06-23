@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HelloWorld msg="这里是基座Home页面，基于vue3.x开发" />
+    <HelloWorld msg="前端知识图谱" />
     <img class="img" src="../assets/main.jpg" alt="知识图谱" />
     <div>
       <a href="https://beian.miit.gov.cn/" target="_blank"
