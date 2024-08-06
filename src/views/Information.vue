@@ -221,6 +221,11 @@ export default defineComponent({
             link: "/web-mongodb/",
             label: "mongodb",
           },
+          {
+          image: "",
+          link: "/web-postgresql/",
+          label: "postgresql",
+        },
         ],
       },
       {
