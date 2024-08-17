@@ -167,7 +167,7 @@ export default defineComponent({
           },
           {
             image: "",
-            link: "/web-electorn/",
+            link: "/web-electron/",
             label: "electorn",
           },
           {
