@@ -7,12 +7,7 @@
         <div class="wrapper">
           <div class="box" v-for="(child, i) in item.data" :key="i">
             <a :href="child.link">
-              <img
-                width="40"
-                height="40"
-                style="margin-top: 10px"
-                src="../assets/logo.png"
-              />
+              <img width="40" height="40" style="margin-top: 10px" src="../assets/logo.png" />
               <span>{{ child.label }}</span>
             </a>
           </div>
@@ -92,12 +87,12 @@ export default defineComponent({
           {
             image: "",
             link: "/wechat-react/",
-            label: "react",
+            label: "react微信",
           },
           {
             image: "",
             link: "/wechat-vue/",
-            label: "vue",
+            label: "vue微信",
           },
         ],
       },
@@ -220,10 +215,12 @@ export default defineComponent({
 </script>
 <style scoped>
 @media screen and (max-width: 768px) {
+
   /* 移动端 */
   .box {
-    width: 25%;
-    min-width: 80px;
+    border: 1px solid transparent;
+    width: calc(25% - 2px);
+    min-width: 60px;
     display: block;
     float: left;
     line-height: 40px;
@@ -232,9 +229,11 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 769px) {
+
   /* 桌面端 */
   .box {
-    width: 25%;
+    border: 1px solid transparent;
+    width: calc(25% - 2px);
     min-width: 100px;
     display: block;
     float: left;
@@ -242,33 +241,45 @@ export default defineComponent({
     text-align: center;
   }
 }
+
 .title {
   font-size: 30px;
   font-weight: bold;
   line-height: 40px;
   padding-bottom: 20px;
 }
+
 .desc {
   text-align: left;
   height: 20px;
   line-height: 20px;
   text-indent: 10px;
-  padding-top: 10px;
+  padding: 10px 0;
+  color: #000;
 }
+
 .wrapper {
-  border: 1px solid red;
+  border: 1px solid lightgray;
   border-radius: 5px;
   height: 90px;
-  margin: 10px;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #fff;
 }
 
 .box:hover {
-  background-color: lightblue;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(45deg, #e2eef1, rgba(205, 238, 255, .2) 99%), linear-gradient(45deg, rgb(160, 178, 183), rgba(82.00000271201134, 218.00000220537186, 255, .18000000715255737), rgba(82.00000271201134, 218.00000220537186, 255, .4000000059604645), rgba(82.00000271201134, 218.00000220537186, 255, .75));
 }
+
 img {
   display: block;
   margin: 0 auto;
 }
+
 a {
   display: block;
   width: 100%;
