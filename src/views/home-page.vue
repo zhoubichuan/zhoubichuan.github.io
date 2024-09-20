@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HelloWorld msg="前端知识图谱" />
+    <hello-world msg="前端知识图谱" />
     <img class="img" src="../assets/main.jpg" alt="知识图谱" />
     <div>
       <a href="https://beian.miit.gov.cn/" target="_blank"
@@ -10,19 +10,11 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
-export default {
-  name: "Home",
-  components: {
-    HelloWorld,
-  },
-  setup() {},
-};
+<script lang="ts" setup>
+import HelloWorld from "@/components/hello-world.vue";
 </script>
-<style>
+
+<style lang="scss" scoped>
 .img {
   width: 100%;
 }
