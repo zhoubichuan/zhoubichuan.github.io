@@ -49,7 +49,7 @@
           default-active="/base"
           class="el-menu-vertical-demo"
         >
-          <li style="text-align: center; line-height: 50px">xxxx系统</li>
+          <li style="text-align: center; line-height: 50px">资料管理系统</li>
           <el-menu-item-group
             :title="menus.title"
             v-for="(menus, index) in menusData"
@@ -68,6 +68,7 @@
       <el-main>
         <router-view v-show="$route.name" />
         <div id="subapp" v-show="!$route.name"></div>
+        <div id="resume" v-show="!$route.name"></div>
       </el-main>
     </el-container>
   </el-container>
@@ -81,11 +82,11 @@ let defaultData = [
     menuItem: [
       {
         index: "/base",
-        title: "首页",
+        title: "知识图谱",
       },
       {
         index: "/base/about",
-        title: "资料",
+        title: "文档资料",
       },
     ],
   },
@@ -93,7 +94,7 @@ let defaultData = [
 if (localStorage.projectType === "321456") {
   defaultData[0].menuItem.push({
     index: "/base/project",
-    title: "项目",
+    title: "线上项目",
   });
 }
 let targetArr = [
