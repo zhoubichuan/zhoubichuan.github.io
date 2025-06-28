@@ -8,12 +8,11 @@
           <div class="box" v-for="(child, i) in item.data" :key="i">
             <a :href="child.link">
               <img
-                width="40"
-                height="40"
-                style="margin-top: 10px"
+                width="38"
+                height="38"
                 src="../assets/logo.png"
               />
-              <span>{{ child.label }}</span>
+              <span class="text">{{ child.label }}</span>
             </a>
           </div>
         </div>
@@ -21,6 +20,7 @@
     </div>
   </div>
 </template>
+
 <script lang="ts" setup>
 import { reactive } from "vue";
 const options = [
@@ -210,7 +210,8 @@ const data = reactive({
   options: JSON.parse(localStorage.projectNames),
 });
 </script>
-<style scoped>
+
+<style lang="scss" scoped>
 @media screen and (max-width: 768px) {
   /* 移动端 */
   .box {
@@ -251,6 +252,7 @@ const data = reactive({
   text-indent: 10px;
   padding: 10px 0;
   color: #000;
+  font-size: 24px;
 }
 
 .wrapper {
@@ -292,5 +294,11 @@ a {
   text-align: center;
   color: #333;
   text-decoration: none;
+  img{
+    margin-top: 10px;
+  }
+  .text{
+    font-size: 20px;
+  }
 }
 </style>

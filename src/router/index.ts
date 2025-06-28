@@ -1,33 +1,31 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/home-page.vue'
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
-    path: "/",
-    redirect: "/base",
+    path: '/',
+    redirect: '/base'
   },
   {
-    path: "/base",
-    name: "home",
-    component: () =>
-      import(/* webpackChunkName: "home" */ "../views/home-page.vue"),
+    path: '/base',
+    name: 'Home',
+    component: Home
   },
   {
-    path: "/base/about",
-    name: "information",
-    component: () =>
-      import(/* webpackChunkName: "information" */ "../views/info-page.vue"),
+    path: '/base/about',
+    name: 'Information',
+    component: () => import(/* webpackChunkName: "Information" */ '../views/info-page.vue')
   },
   {
-    path: "/base/project",
-    name: "project",
-    component: () =>
-      import(/* webpackChunkName: "project" */ "../views/project-page.vue"),
-  },
-];
+    path: '/base/project',
+    name: 'Project',
+    component: () => import(/* webpackChunkName: "Project" */ '../views/project-page.vue')
+  }
+]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes,
-});
+  history: createWebHistory(),
+  routes
+})
 
-export default router;
+export default router

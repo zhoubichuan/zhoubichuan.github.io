@@ -1,39 +1,26 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import ElementPlus from "element-plus";
-import "element-plus/dist/index.css";
-import { registerMicroApps, start } from "qiankun";
+import { createApp, type App } from 'vue'
+// import store from './store'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import { registerMicroApps, start } from 'qiankun';
 import microApps from "./micro-app";
-import "./registerServiceWorker";
+import 'amfe-flexible'
+import AppComponent from '@/App.vue';
+import router from '@/router';
+import GlobalDirective from '@/directives';
+import microApp from '@/extends/micro-app';
+// import lifeCycle from '@/extends/life-cycle';
+import type { MicroAppProps } from '@/extends/micro-app';
+const app: App = createApp(AppComponent)
+app.use(ElementPlus)
 
-const app = createApp(App);
-app.use(ElementPlus);
-app.use(store).use(router).mount("#app");
+// app.use(store)
+app.use(router).mount('#template-project')
 
-const config: any = {
-  // 挂载前回调
-  beforeLoad: [
-    (app: any) => {
-      console.log("beforeload", app);
-    },
-  ],
-  // 挂载后回调
-  beforeMount: [
-    (app: any) => {
-      console.log("beforeMount", app);
-    },
-  ],
-  // 卸载后回调
-  afterUnmount: [
-    (app: any) => {
-      console.log("afterMount", app);
-    },
-  ],
-};
+registerMicroApps(microApps()
+// , lifeCycle
+);
 
-registerMicroApps(microApps(ElementPlus), config);
 start({
-  prefetch: false,
+    prefetch: false
 });

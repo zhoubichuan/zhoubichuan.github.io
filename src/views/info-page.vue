@@ -8,12 +8,11 @@
           <div class="box" v-for="(child, i) in item.data" :key="i">
             <a :href="child.link">
               <img
-                width="40"
-                height="40"
-                style="margin-top: 10px"
+                width="38"
+                height="38"
                 src="../assets/logo.png"
               />
-              <span>{{ child.label }}</span>
+              <span class="text">{{ child.label }}</span>
             </a>
           </div>
         </div>
@@ -369,6 +368,7 @@ const data = reactive({
   text-indent: 10px;
   padding: 10px 0;
   color: #000;
+  font-size: 24px;
 }
 
 .wrapper {
@@ -410,5 +410,11 @@ a {
   text-align: center;
   color: #333;
   text-decoration: none;
+  img{
+    margin-top: 10px;
+  }
+  .text{
+    font-size: 20px;
+  }
 }
 </style>

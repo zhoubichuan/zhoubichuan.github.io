@@ -1,93 +1,70 @@
 {
-  "main": "zhoubicuan",
-  "private": false,
-  "keywords": [],
-  "description": "描述",
-  "author": "zhoubichuan",
   "name": "zhoubichuan",
   "version": "1.1.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "npm run serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "deploy": "bash deploy.sh",
-    "github": "bash github.sh",
-    "gitee": "bash gitee.sh"
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint:style": "stylelint --fix",
+    "format": "prettier --write",
+    "prepare": "husky"
   },
   "dependencies": {
-    "core-js": "^3.38.1",
-    "element-plus": "2.8.3",
-    "qiankun": "2.10.16",
-    "register-service-worker": "1.7.2",
-    "vue": "^3.5.7",
-    "vue-router": "^4.4.5",
-    "vuex": "^4.1.0"
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "@vueuse/components": "^13.4.0",
+    "@vueuse/core": "^13.4.0",
+    "axios": "^1.10.0",
+    "clipboard": "^2.0.11",
+    "element-plus": "^2.10.2",
+    "lodash-es": "^4.17.21",
+    "pinia": "^2.2.6",
+    "qiankun": "^2.10.16",
+    "qs": "^6.13.1",
+    "spark-md5": "^3.0.2",
+    "vite-plugin-qiankun": "^1.0.15",
+    "vue": "^3.5.13",
+    "vue-amap": "^0.5.10",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.19",
-    "@types/mocha": "^8.2.3",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-plugin-pwa": "^5.0.8",
-    "@vue/cli-plugin-router": "^5.0.8",
-    "@vue/cli-plugin-typescript": "^5.0.8",
-    "@vue/cli-plugin-unit-mocha": "^5.0.8",
-    "@vue/cli-plugin-vuex": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
-    "@vue/eslint-config-typescript": "9.1.0",
-    "@vue/test-utils": "^2.4.6",
-    "chai": "^4.5.0",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^8.7.1",
-    "lint-staged": "^11.2.6",
-    "prettier": "^2.8.8",
-    "sass": "^1.79.2",
-    "sass-loader": "^12.6.0",
-    "typescript": "5.6.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "@vue/typescript/recommended",
-      "plugin:prettier/recommended"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2020
-    },
-    "rules": {},
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "mocha": true
-        }
-      }
-    ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
-  ],
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": "vue-cli-service lint"
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@rushstack/eslint-patch": "^1.12.0",
+    "@tsconfig/node20": "^20.1.6",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.9.3",
+    "@types/postcss-pxtorem": "^6.1.0",
+    "@types/spark-md5": "^3.0.5",
+    "@vitejs/plugin-basic-ssl": "^2.0.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^5.0.0",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.1.3",
+    "@vue/tsconfig": "^0.7.0",
+    "amfe-flexible": "^2.2.1",
+    "eslint": "^9.14.0",
+    "eslint-plugin-vue": "^9.30.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "npm-run-all2": "^7.0.1",
+    "postcss-pxtorem": "^6.1.0",
+    "prettier": "^3.6.2",
+    "sass": "^1.83.0",
+    "sass-loader": "^16.0.4",
+    "stylelint": "^16.21.0",
+    "stylelint-config-recess-order": "^7.1.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "typescript": "~5.6.3",
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-vue-components": "^28.7.0",
+    "vite": "^6.0.1",
+    "vite-plugin-vue-devtools": "^7.6.5",
+    "vite-plugin-zip-pack": "^1.2.4",
+    "vue-tsc": "^2.1.10"
   }
 }
