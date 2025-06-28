@@ -2,7 +2,6 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import qiankun from 'vite-plugin-qiankun';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 // import zipPack from 'vite-plugin-zip-pack';
 import postCssPxToRem from 'postcss-pxtorem';
@@ -48,9 +47,6 @@ export default defineConfig(({ mode }) => {
         plugins: [
             vue(),
             vueJsx(),
-            qiankun('template-project', {
-                useDevMode: true
-            }),
             basicSsl(),
             // zipPack({
             //     outFileName: 'dist.zip',
