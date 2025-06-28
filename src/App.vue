@@ -132,20 +132,20 @@ let targetArr = [
       },
     ],
   },
-  {
-    title: "resume项目菜单",
-    key: "resume",
-    menuItem: [
-      {
-        index: "/resume",
-        title: "页面1",
-      },
-      {
-        index: "/resume/about3",
-        title: "页面2",
-      },
-    ],
-  },
+  // {
+  //   title: "resume项目菜单",
+  //   key: "resume",
+  //   menuItem: [
+  //     {
+  //       index: "/resume",
+  //       title: "页面1",
+  //     },
+  //     {
+  //       index: "/resume/about3",
+  //       title: "页面2",
+  //     },
+  //   ],
+  // },
 ];
 export default defineComponent({
   setup() {

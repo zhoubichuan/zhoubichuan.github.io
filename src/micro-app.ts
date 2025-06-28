@@ -34,20 +34,20 @@ const microApps = Array.isArray(microRoutes)
           ],
         },
       },
-      {
-        name: "resume",
-        entry: "/resume/",
-        activeRule: "/resume",
-        container: "#subapp",
-        props: {
-          data: "来自基座的数据2",
-          fns: [
-            function LOGOUT_(data: any) {
-              alert("父应用返回信息：" + data);
-            },
-          ],
-        },
-      },
+      // {
+      //   name: "resume",
+      //   entry: "/resume/",
+      //   activeRule: "/resume",
+      //   container: "#subapp",
+      //   props: {
+      //     data: "来自基座的数据2",
+      //     fns: [
+      //       function LOGOUT_(data: any) {
+      //         alert("父应用返回信息：" + data);
+      //       },
+      //     ],
+      //   },
+      // },
     ];
 const apps = (ui: any) =>
   microApps.map((item) => {

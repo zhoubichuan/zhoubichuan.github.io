@@ -15,6 +15,7 @@ module.exports = defineConfig({
 
     config.plugin("html").tap((args) => {
       args[0].title = "前端日常学习资料";
+      args[0].versiontime = "版本时间:" + new Date().toLocaleString();
       return args;
     });
   },
