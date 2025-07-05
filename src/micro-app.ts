@@ -32,8 +32,8 @@ const microApps = Array.isArray(microRoutes)
         },
         {
             name: "resume",
-            entry: "/resume",
-            activeRule: "resume",
+            entry: "/resume/", // history
+            activeRule: "/child/resume/",
             container: "#resume",
             props: {
                 data: '来自基座的数据2',

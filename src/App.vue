@@ -282,7 +282,7 @@ body > .el-container {
   }
   .icon {
     display: block;
-    width: 20px;
+    width: 80px;
   }
   .head .el-form {
     display: none;

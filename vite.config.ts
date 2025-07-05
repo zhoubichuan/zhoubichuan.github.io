@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
                         selectorBlackList: [], // 选择器黑名单，忽略转换的选择器
                         replace: true, // 替换包含rem的规则，而不是添加回退
                         mediaQuery: false, // 允许在媒体查询中转换px
-                        minPixelValue: 0, // 设置要替换的最小像素值
+                        minPixelValue: 1, // 设置要替换的最小像素值
                         exclude: /node_modules/i,
                     })
                 ]
