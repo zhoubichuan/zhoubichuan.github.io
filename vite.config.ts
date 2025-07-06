@@ -3,6 +3,7 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import basicSsl from '@vitejs/plugin-basic-ssl';
+import { createHtmlPlugin } from 'vite-plugin-html'
 // import zipPack from 'vite-plugin-zip-pack';
 import postCssPxToRem from 'postcss-pxtorem';
 // https://vite.dev/config/
@@ -53,6 +54,13 @@ export default defineConfig(({ mode }) => {
             //     outDir: 'dist',
             //     inDir: 'dist'
             // })
+            createHtmlPlugin({
+                inject: {
+                    data: {
+                        versiontime: new Date().toLocaleString()
+                    }
+                }
+            })
         ],
         resolve: {
             alias: {
