@@ -2,12 +2,12 @@
     <div class="about">
         <div class="title">项目资料</div>
         <div class="content">
-            <div v-for="(item, index) in data.options" :key="index">
+            <div class="item" v-for="(item, index) in data.options" :key="index">
                 <div class="desc">{{ item.desc }}</div>
                 <div class="wrapper">
                     <div class="box" v-for="(child, i) in item.data" :key="i">
-                        <a :href="child.link">
-                            <img width="38" height="38" src="../assets/logo.png" />
+                        <a class="link" :href="child.link">
+                            <img class="img" src="../assets/logo.png" />
                             <span class="text">{{ child.label }}</span>
                         </a>
                     </div>
