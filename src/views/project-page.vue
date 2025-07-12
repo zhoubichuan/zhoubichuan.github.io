@@ -58,6 +58,11 @@ const options = [
                 link: "/order/",
                 label: "我的菜单",
             },
+            {
+                image: "",
+                link: "/map-manager/",
+                label: "地图管理",
+            },
         ],
     },
     {
