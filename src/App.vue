@@ -1,47 +1,50 @@
 <template>
-    <el-container class="main">
-        <el-header class="head">
-            <img class="logo" width="40" height="40" style="margin-top: 10px; margin-right: 100px" alt="Vue logo"
-                src="./assets/logo.png" />
-            <svg @click="handleShow" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
-                viewBox="0 0 448 512" class="icon">
-                <path fill="currentColor"
-                    d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z">
-                </path>
-            </svg>
-            <el-form :inline="true" :model="formInline">
-                <el-form-item label="选择子项目">
-                    <el-cascader :disabled="formInline.all" :options="options" @change="handleSelect"
-                        :show-all-levels="false" />
-                </el-form-item>
-                <el-form-item label="显示菜单">
-                    <el-switch v-model="formInline.user"></el-switch>
-                </el-form-item>
-                <el-form-item label="显示全部菜单">
-                    <el-switch v-model="formInline.all"></el-switch>
-                </el-form-item>
-                <el-form-item label="显示类型">
-                    <el-input @input="handleChange" v-model="formInline.type"></el-input>
-                </el-form-item>
-            </el-form>
-        </el-header>
-        <el-container>
-            <el-aside :class="{ menu: true, show: show }" v-if="formInline.user">
-                <el-menu :router="true" default-active="/base" class="el-menu-vertical-demo">
-                    <li class="menu-title">资料管理系统</li>
-                    <el-menu-item-group :title="menus.title" v-for="(menus, index) in menusData" :key="index">
-                        <el-menu-item v-for="(n, i) in menus.menuItem" :key="i" :index="n.index" @click="handleShow">{{
-                            n.title }}</el-menu-item>
-                    </el-menu-item-group>
-                </el-menu>
-            </el-aside>
-            <el-main>
-                <router-view v-show="$route.name" />
-                <div id="subapp" v-show="!$route.name"></div>
-                <div id="resume" v-show="!$route.name"></div>
-            </el-main>
+    <el-config-provider namespace="base">
+        <el-container class="main">
+            <el-header class="head">
+                <img class="logo" width="40" height="40" style="margin-top: 10px; margin-right: 100px" alt="Vue logo"
+                    src="./assets/logo.png" />
+                <svg @click="handleShow" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
+                    viewBox="0 0 448 512" class="icon">
+                    <path fill="currentColor"
+                        d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z">
+                    </path>
+                </svg>
+                <el-form :inline="true" :model="formInline">
+                    <el-form-item label="选择子项目">
+                        <el-cascader :disabled="formInline.all" :options="options" @change="handleSelect"
+                            :show-all-levels="false" />
+                    </el-form-item>
+                    <el-form-item label="显示菜单">
+                        <el-switch v-model="formInline.user"></el-switch>
+                    </el-form-item>
+                    <el-form-item label="显示全部菜单">
+                        <el-switch v-model="formInline.all"></el-switch>
+                    </el-form-item>
+                    <el-form-item label="显示类型">
+                        <el-input @input="handleChange" v-model="formInline.type"></el-input>
+                    </el-form-item>
+                </el-form>
+            </el-header>
+            <el-container>
+                <el-aside :class="{ menu: true, show: show }" v-if="formInline.user">
+                    <el-menu :router="true" default-active="/base" class="el-menu-vertical-demo">
+                        <li class="menu-title">资料管理系统</li>
+                        <el-menu-item-group :title="menus.title" v-for="(menus, index) in menusData" :key="index">
+                            <el-menu-item v-for="(n, i) in menus.menuItem" :key="i" :index="n.index"
+                                @click="handleShow">{{
+                                    n.title }}</el-menu-item>
+                        </el-menu-item-group>
+                    </el-menu>
+                </el-aside>
+                <el-main>
+                    <router-view v-show="$route.name" />
+                    <div id="subapp" v-show="!$route.name"></div>
+                    <div id="resume" v-show="!$route.name"></div>
+                </el-main>
+            </el-container>
         </el-container>
-    </el-container>
+    </el-config-provider>
 </template>
 <script>
 import { reactive, toRefs, defineComponent, computed } from "vue";
@@ -203,19 +206,19 @@ export default defineComponent({
 
 
 
-.el-header,
-.el-footer {
+.base-header,
+.base-footer {
     background-color: #b3c0d1;
     color: var(--el-text-color-primary);
     text-align: center;
     line-height: 60px;
 }
 
-.el-header {
+.base-header {
     display: flex;
 }
 
-.el-aside {
+.base-aside {
     background-color: #d3dce6;
     color: var(--el-text-color-primary);
     text-align: left;
@@ -227,25 +230,25 @@ body {
     padding: 0;
 }
 
-body>.el-container {
+body>.base-container {
     margin-bottom: 40px;
 }
 
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
+.base-container:nth-child(5) .base-aside,
+.base-container:nth-child(6) .base-aside {
     line-height: 260px;
 }
 
-.el-container:nth-child(7) .el-aside {
+.base-container:nth-child(7) .base-aside {
     line-height: 320px;
 }
 
-.el-form-item {
+.base-form-item {
     margin-top: 14px;
 }
 
 @media screen and (max-width: 768px) {
-    .el-main {
+    .base-main {
         background-color: #e9eef3;
         color: var(--el-text-color-primary);
         text-align: center;
@@ -272,7 +275,7 @@ body>.el-container {
         width: 80px;
     }
 
-    .head .el-form {
+    .head .base-form {
         display: none;
     }
 
@@ -287,7 +290,7 @@ body>.el-container {
 }
 
 @media screen and (min-width: 769px) {
-    .el-main {
+    .base-main {
         background-color: #e9eef3;
         color: var(--el-text-color-primary);
         text-align: center;
@@ -312,7 +315,7 @@ body>.el-container {
         display: none;
     }
 
-    .head .el-form {
+    .head .base-form {
         display: block;
     }
 

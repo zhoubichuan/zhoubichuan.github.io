@@ -6,6 +6,8 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 import { createHtmlPlugin } from 'vite-plugin-html'
 // import zipPack from 'vite-plugin-zip-pack';
 import postCssPxToRem from 'postcss-pxtorem';
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
     /**
@@ -15,13 +17,11 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), "");
     return {
         css: {
-            // preprocessorOptions: {
-            //     scss: {ƒ
-            //         additionalData: `
-            //         @use "@/styles/element-plus.scss" as *;
-            //     `
-            //     }
-            // },
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `@use "@/styles/element/index.scss" as *;`,
+                }
+            },
             postcss: {
                 plugins: [
                     postCssPxToRem({
@@ -60,7 +60,16 @@ export default defineConfig(({ mode }) => {
                         versiontime: new Date().toLocaleString()
                     }
                 }
-            })
+            }),
+            Components({
+                resolvers: [
+                    ElementPlusResolver({
+                        importStyle: "sass",
+                        // directives: true,
+                        // version: "2.1.5",
+                    }),
+                ],
+            }),
         ],
         resolve: {
             alias: {

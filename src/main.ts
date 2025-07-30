@@ -1,7 +1,7 @@
 import { createApp, type App } from 'vue'
 // import store from './store'
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+// import 'element-plus/dist/index.css'
 import { registerMicroApps, start } from 'qiankun';
 import microApps from "./micro-app";
 import 'amfe-flexible'
