@@ -15,7 +15,7 @@ const app: App = createApp(AppComponent)
 app.use(ElementPlus)
 
 // app.use(store)
-app.use(router).mount('#app')
+app.use(router).mount('#base-app')
 
 registerMicroApps(microApps()
 // , lifeCycle
