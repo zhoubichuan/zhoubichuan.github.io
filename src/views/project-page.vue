@@ -31,17 +31,17 @@ const options = [
             {
                 image: "",
                 link: "/resume/",
-                label: "我的简历",
+                label: "简历介绍",
             },
             {
                 image: "",
                 link: "/classroom/",
-                label: "我的课堂",
+                label: "学习课堂",
             },
             {
                 image: "",
                 link: "/website/",
-                label: "我的网站",
+                label: "门户网站",
             },
         ],
     },
@@ -56,7 +56,7 @@ const options = [
             {
                 image: "",
                 link: "/order/",
-                label: "我的菜单",
+                label: "菜单管理",
             },
             {
                 image: "",
@@ -71,7 +71,7 @@ const options = [
             {
                 image: "",
                 link: "/abstract-umi/",
-                label: "umi",
+                label: "表格数据",
             },
             {
                 image: "",
@@ -86,17 +86,17 @@ const options = [
         ],
     },
     {
-        desc: "微信项目",
+        desc: "聊天项目",
         data: [
             {
                 image: "",
                 link: "/wechat-react/",
-                label: "react微信",
+                label: "AI聊天",
             },
             {
                 image: "",
                 link: "/wechat-vue/",
-                label: "vue微信",
+                label: "通信工具",
             },
         ],
     },
