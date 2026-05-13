@@ -1,25 +1,25 @@
-import { fileURLToPath, URL } from "node:url";
-import { defineConfig, loadEnv } from "vite";
-import vue from "@vitejs/plugin-vue";
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig, loadEnv } from 'vite';
+import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import basicSsl from '@vitejs/plugin-basic-ssl';
-import { createHtmlPlugin } from 'vite-plugin-html'
+import { createHtmlPlugin } from 'vite-plugin-html';
 // import zipPack from 'vite-plugin-zip-pack';
 import postCssPxToRem from 'postcss-pxtorem';
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
     /**
      * 根据当前工作目录中的 `mode` 加载 .env 文件
      * 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀。
      */
-    const env = loadEnv(mode, process.cwd(), "");
+    const env = loadEnv(mode, process.cwd(), '');
     return {
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: `@use "@/styles/element/index.scss" as *;`,
+                    additionalData: `@use "@/styles/element/index.scss" as *;`
                 }
             },
             postcss: {
@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
                         replace: true, // 替换包含rem的规则，而不是添加回退
                         mediaQuery: false, // 允许在媒体查询中转换px
                         minPixelValue: 1, // 设置要替换的最小像素值
-                        exclude: /node_modules/i,
+                        exclude: /node_modules/i
                     })
                 ]
             }
@@ -64,17 +64,17 @@ export default defineConfig(({ mode }) => {
             Components({
                 resolvers: [
                     ElementPlusResolver({
-                        importStyle: "sass",
+                        importStyle: 'sass'
                         // directives: true,
                         // version: "2.1.5",
-                    }),
-                ],
-            }),
+                    })
+                ]
+            })
         ],
         resolve: {
             alias: {
-                "@": fileURLToPath(new URL("./src", import.meta.url)),
-            },
+                '@': fileURLToPath(new URL('./src', import.meta.url))
+            }
         },
         server: {
             port: 3000,
@@ -82,12 +82,11 @@ export default defineConfig(({ mode }) => {
             // 配置自定义代理规则
             proxy: {
                 [env.VITE_APP_BASE_API]: {
-                    target: "http://localhost:8080",
+                    target: 'http://localhost:8080',
                     changeOrigin: true,
-                    rewrite: (path) =>
-                        path.replace(new RegExp(`^${env.VITE_APP_BASE_API}`), ""),
-                },
-            },
-        },
+                    rewrite: (path) => path.replace(new RegExp(`^${env.VITE_APP_BASE_API}`), '')
+                }
+            }
+        }
     };
 });

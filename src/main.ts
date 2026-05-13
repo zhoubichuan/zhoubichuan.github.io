@@ -1,24 +1,25 @@
-import { createApp, type App } from 'vue'
+import { createApp, type App } from 'vue';
 // import store from './store'
-import ElementPlus from 'element-plus'
+import ElementPlus from 'element-plus';
 // import 'element-plus/dist/index.css'
 import { registerMicroApps, start } from 'qiankun';
-import microApps from "./micro-app";
-import 'amfe-flexible'
+import microApps from './micro-app';
+import 'amfe-flexible';
 import AppComponent from '@/App.vue';
 import router from '@/router';
 import GlobalDirective from '@/directives';
 import microApp from '@/extends/micro-app';
 // import lifeCycle from '@/extends/life-cycle';
 import type { MicroAppProps } from '@/extends/micro-app';
-const app: App = createApp(AppComponent)
-app.use(ElementPlus)
+const app: App = createApp(AppComponent);
+app.use(ElementPlus);
 
 // app.use(store)
-app.use(router).mount('#base-app')
+app.use(router).mount('#base-app');
 
-registerMicroApps(microApps()
-// , lifeCycle
+registerMicroApps(
+    microApps()
+    // , lifeCycle
 );
 
 start({
