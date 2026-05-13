@@ -7,9 +7,7 @@ type CurUser = {
     cityId: number;
 };
 
-export type MicroAppName =
-    | 'sub-xxxx'
-    | 'sub2-xxxx'
+export type MicroAppName = 'sub-xxxx' | 'sub2-xxxx';
 
 export type Route = {
     type?: 'push' | 'replace';

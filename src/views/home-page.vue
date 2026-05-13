@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import HelloWorld from "@/components/hello-world.vue";
+import HelloWorld from '@/components/hello-world.vue';
 </script>
 
 <style lang="scss" scoped>

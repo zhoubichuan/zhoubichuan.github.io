@@ -18,314 +18,313 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { reactive } from 'vue';
 const options = [
     {
-        desc: "开发工具",
+        desc: '开发工具',
         data: [
             {
-                image: "",
-                link: "/web-npm/",
-                label: "npm",
+                image: '',
+                link: '/web-npm/',
+                label: 'npm'
             },
             {
-                image: "",
-                link: "/web-git/",
-                label: "git",
+                image: '',
+                link: '/web-git/',
+                label: 'git'
             },
             {
-                image: "",
-                link: "/web-vscode/",
-                label: "vscode",
+                image: '',
+                link: '/web-vscode/',
+                label: 'vscode'
             },
             {
-                image: "",
-                link: "/web-chrome/",
-                label: "chrome",
-            },
-        ],
+                image: '',
+                link: '/web-chrome/',
+                label: 'chrome'
+            }
+        ]
     },
     {
-        desc: "javascript",
+        desc: 'javascript',
         data: [
             {
-                image: "",
-                link: "/web-html/",
-                label: "html",
+                image: '',
+                link: '/web-html/',
+                label: 'html'
             },
             {
-                image: "",
-                link: "/web-css/",
-                label: "css",
+                image: '',
+                link: '/web-css/',
+                label: 'css'
             },
             {
-                image: "",
-                link: "/web-javascript/",
-                label: "javascript",
+                image: '',
+                link: '/web-javascript/',
+                label: 'javascript'
             },
             {
-                image: "",
-                link: "/web-typescript/",
-                label: "typescript",
-            },
-        ],
+                image: '',
+                link: '/web-typescript/',
+                label: 'typescript'
+            }
+        ]
     },
     {
-        desc: "vue2.x框架",
+        desc: 'vue2.x框架',
         data: [
             {
-                image: "",
-                link: "/web-vue2x/",
-                label: "vue2.x",
+                image: '',
+                link: '/web-vue2x/',
+                label: 'vue2.x'
             },
             {
-                image: "",
-                link: "/web-elementui/",
-                label: "element",
+                image: '',
+                link: '/web-elementui/',
+                label: 'element'
             },
             {
-                image: "",
-                link: "/web-nuxt/",
-                label: "nuxt",
-            },
-        ],
+                image: '',
+                link: '/web-nuxt/',
+                label: 'nuxt'
+            }
+        ]
     },
     {
-        desc: "vue3.x框架",
+        desc: 'vue3.x框架',
         data: [
             {
-                image: "",
-                link: "/web-vue3x/",
-                label: "vue3.x",
+                image: '',
+                link: '/web-vue3x/',
+                label: 'vue3.x'
             },
             {
-                image: "",
-                link: "/web-elementplus/",
-                label: "element+",
-            },
-        ],
+                image: '',
+                link: '/web-elementplus/',
+                label: 'element+'
+            }
+        ]
     },
     {
-        desc: "react框架",
+        desc: 'react框架',
         data: [
             {
-                image: "",
-                link: "/web-react/",
-                label: "react",
+                image: '',
+                link: '/web-react/',
+                label: 'react'
             },
             {
-                image: "",
-                link: "/web-antd/",
-                label: "antd",
+                image: '',
+                link: '/web-antd/',
+                label: 'antd'
             },
             {
-                image: "",
-                link: "/web-next/",
-                label: "next",
-            },
-        ],
+                image: '',
+                link: '/web-next/',
+                label: 'next'
+            }
+        ]
     },
     {
-        desc: "构建工具",
+        desc: '构建工具',
         data: [
             {
-                image: "",
-                link: "/web-webpack/",
-                label: "webpack",
+                image: '',
+                link: '/web-webpack/',
+                label: 'webpack'
             },
             {
-                image: "",
-                link: "/web-vite/",
-                label: "vite",
+                image: '',
+                link: '/web-vite/',
+                label: 'vite'
             },
             {
-                image: "",
-                link: "/web-gulp/",
-                label: "gulp",
+                image: '',
+                link: '/web-gulp/',
+                label: 'gulp'
             },
             {
-                image: "",
-                link: "/web-rollup/",
-                label: "rollup",
-            },
-        ],
+                image: '',
+                link: '/web-rollup/',
+                label: 'rollup'
+            }
+        ]
     },
     {
-        desc: "客户端",
+        desc: '客户端',
         data: [
             {
-                image: "",
-                link: "/web-ionic/",
-                label: "ionic",
+                image: '',
+                link: '/web-ionic/',
+                label: 'ionic'
             },
             {
-                image: "",
-                link: "/web-electron/",
-                label: "electorn",
+                image: '',
+                link: '/web-electron/',
+                label: 'electorn'
             },
             {
-                image: "",
-                link: "/web-cordova/",
-                label: "cordova",
-            },
-        ],
+                image: '',
+                link: '/web-cordova/',
+                label: 'cordova'
+            }
+        ]
     },
     {
-        desc: "node后端",
+        desc: 'node后端',
         data: [
             {
-                image: "",
-                link: "/web-node/",
-                label: "node",
+                image: '',
+                link: '/web-node/',
+                label: 'node'
             },
             {
-                image: "",
-                link: "/web-express/",
-                label: "express",
+                image: '',
+                link: '/web-express/',
+                label: 'express'
             },
             {
-                image: "",
-                link: "/web-koa/",
-                label: "koa",
+                image: '',
+                link: '/web-koa/',
+                label: 'koa'
             },
 
             {
-                image: "",
-                link: "/web-egg/",
-                label: "egg",
-            },
-        ],
+                image: '',
+                link: '/web-egg/',
+                label: 'egg'
+            }
+        ]
     },
     {
-        desc: "数据库",
+        desc: '数据库',
         data: [
             {
-                image: "",
-                link: "/web-redis/",
-                label: "redis",
+                image: '',
+                link: '/web-redis/',
+                label: 'redis'
             },
             {
-                image: "",
-                link: "/web-mysql/",
-                label: "mysql",
+                image: '',
+                link: '/web-mysql/',
+                label: 'mysql'
             },
             {
-                image: "",
-                link: "/web-mongodb/",
-                label: "mongodb",
+                image: '',
+                link: '/web-mongodb/',
+                label: 'mongodb'
             },
             {
-                image: "",
-                link: "/web-postgresql/",
-                label: "postgresql",
-            },
-        ],
+                image: '',
+                link: '/web-postgresql/',
+                label: 'postgresql'
+            }
+        ]
     },
     {
-        desc: "部署相关",
+        desc: '部署相关',
         data: [
             {
-                image: "",
-                link: "/web-devops/",
-                label: "devops",
+                image: '',
+                link: '/web-devops/',
+                label: 'devops'
             },
             {
-                image: "",
-                link: "/web-nginx/",
-                label: "nginx",
+                image: '',
+                link: '/web-nginx/',
+                label: 'nginx'
             },
             {
-                image: "",
-                link: "/web-docker/",
-                label: "docker",
+                image: '',
+                link: '/web-docker/',
+                label: 'docker'
             },
             {
-                image: "",
-                link: "/web-tools/",
-                label: "tools",
-            },
-        ],
+                image: '',
+                link: '/web-tools/',
+                label: 'tools'
+            }
+        ]
     },
     {
-        desc: "数据可视化",
+        desc: '数据可视化',
         data: [
             {
-                image: "",
-                link: "/web-zrender/",
-                label: "zrender",
+                image: '',
+                link: '/web-zrender/',
+                label: 'zrender'
             },
             {
-                image: "",
-                link: "/web-echarts/",
-                label: "echarts",
+                image: '',
+                link: '/web-echarts/',
+                label: 'echarts'
             },
             {
-                image: "",
-                link: "/web-openlayers/",
-                label: "openlayers",
+                image: '',
+                link: '/web-openlayers/',
+                label: 'openlayers'
             },
             {
-                image: "",
-                link: "/web-cesium/",
-                label: "cesium",
-            },
-        ],
+                image: '',
+                link: '/web-cesium/',
+                label: 'cesium'
+            }
+        ]
     },
     {
-        desc: "图形学",
+        desc: '图形学',
         data: [
             {
-                image: "",
-                link: "/web-webgl/",
-                label: "webgl",
+                image: '',
+                link: '/web-webgl/',
+                label: 'webgl'
             },
             {
-                image: "",
-                link: "/web-d3/",
-                label: "d3.js",
+                image: '',
+                link: '/web-d3/',
+                label: 'd3.js'
             },
             {
-                image: "",
-                link: "/web-three/",
-                label: "three.js",
-            },
-        ],
+                image: '',
+                link: '/web-three/',
+                label: 'three.js'
+            }
+        ]
     },
     {
-        desc: "其他",
+        desc: '其他',
         data: [
             {
-                image: "",
-                link: "/web-java/",
-                label: "java",
+                image: '',
+                link: '/web-java/',
+                label: 'java'
             },
             {
-                image: "",
-                link: "/web-rust/",
-                label: "rust",
+                image: '',
+                link: '/web-rust/',
+                label: 'rust'
             },
             {
-                image: "",
-                link: "/web-arithmetic/",
-                label: "算法",
+                image: '',
+                link: '/web-arithmetic/',
+                label: '算法'
             },
             {
-                image: "",
-                link: "/web-interview/",
-                label: "面试",
-            },
-        ],
-    },
+                image: '',
+                link: '/web-interview/',
+                label: '面试'
+            }
+        ]
+    }
 ];
 localStorage.informationNames = JSON.stringify(options);
 const data = reactive({
-    options: JSON.parse(localStorage.informationNames),
+    options: JSON.parse(localStorage.informationNames)
 });
 </script>
 
 <style lang="scss" scoped>
 @media screen and (max-width: 768px) {
-
     /* 移动端 */
 
     .title {
@@ -352,7 +351,9 @@ const data = reactive({
                 height: 280px;
                 border-radius: 16px;
                 padding: 20px;
-                box-shadow: 40px 40px 120px #bebebe, -40px -40px 120px #fff;
+                box-shadow:
+                    40px 40px 120px #bebebe,
+                    -40px -40px 120px #fff;
 
                 .box {
                     border: 2px solid transparent;
@@ -368,14 +369,15 @@ const data = reactive({
                         border-radius: 16px;
                         background-clip: padding-box, border-box;
                         background-origin: padding-box, border-box;
-                        background-image: linear-gradient(45deg,
-                                #e2eef1,
-                                rgba(205, 238, 255, 0.2) 99%),
-                            linear-gradient(45deg,
+                        background-image:
+                            linear-gradient(45deg, #e2eef1, rgba(205, 238, 255, 0.2) 99%),
+                            linear-gradient(
+                                45deg,
                                 rgb(160, 178, 183),
                                 rgba(82.00000271201134, 218.00000220537186, 255, 0.18000000715255737),
                                 rgba(82.00000271201134, 218.00000220537186, 255, 0.4000000059604645),
-                                rgba(82.00000271201134, 218.00000220537186, 255, 0.75));
+                                rgba(82.00000271201134, 218.00000220537186, 255, 0.75)
+                            );
                     }
 
                     .link {
@@ -399,20 +401,16 @@ const data = reactive({
                 }
             }
         }
-
     }
 }
 
 @media screen and (min-width: 769px) {
-
     /* 桌面端 */
     .title {
         font-size: 30px;
         font-weight: bold;
         line-height: 40px;
         padding-bottom: 20px;
-
-
     }
 
     .content {
@@ -433,7 +431,9 @@ const data = reactive({
                 height: 90px;
                 border-radius: 8px;
                 padding: 10px;
-                box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #fff;
+                box-shadow:
+                    20px 20px 60px #bebebe,
+                    -20px -20px 60px #fff;
 
                 .box {
                     border: 1px solid transparent;
@@ -449,14 +449,15 @@ const data = reactive({
                         border-radius: 8px;
                         background-clip: padding-box, border-box;
                         background-origin: padding-box, border-box;
-                        background-image: linear-gradient(45deg,
-                                #e2eef1,
-                                rgba(205, 238, 255, 0.2) 99%),
-                            linear-gradient(45deg,
+                        background-image:
+                            linear-gradient(45deg, #e2eef1, rgba(205, 238, 255, 0.2) 99%),
+                            linear-gradient(
+                                45deg,
                                 rgb(160, 178, 183),
                                 rgba(82.00000271201134, 218.00000220537186, 255, 0.18000000715255737),
                                 rgba(82.00000271201134, 218.00000220537186, 255, 0.4000000059604645),
-                                rgba(82.00000271201134, 218.00000220537186, 255, 0.75));
+                                rgba(82.00000271201134, 218.00000220537186, 255, 0.75)
+                            );
                     }
 
                     .link {
@@ -480,8 +481,6 @@ const data = reactive({
                 }
             }
         }
-
     }
-
 }
 </style>

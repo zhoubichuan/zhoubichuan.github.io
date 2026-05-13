@@ -18,203 +18,202 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { reactive } from 'vue';
 const options = [
     {
-        desc: "数据管理",
+        desc: '数据管理',
         data: [
             {
-                image: "",
-                link: "/umi-blog/",
-                label: "我的博客",
+                image: '',
+                link: '/umi-blog/',
+                label: '我的博客'
             },
             {
-                image: "",
-                link: "/resume/",
-                label: "简历介绍",
+                image: '',
+                link: '/resume/',
+                label: '简历介绍'
             },
             {
-                image: "",
-                link: "/classroom/",
-                label: "学习课堂",
+                image: '',
+                link: '/classroom/',
+                label: '学习课堂'
             },
             {
-                image: "",
-                link: "/website/",
-                label: "门户网站",
-            },
-        ],
+                image: '',
+                link: '/website/',
+                label: '门户网站'
+            }
+        ]
     },
     {
-        desc: "组件项目",
+        desc: '组件项目',
         data: [
             {
-                image: "",
-                link: "/antdpro-demo/",
-                label: "数据管理",
+                image: '',
+                link: '/antdpro-demo/',
+                label: '数据管理'
             },
             {
-                image: "",
-                link: "/order/",
-                label: "菜单管理",
+                image: '',
+                link: '/order/',
+                label: '菜单管理'
             },
             {
-                image: "",
-                link: "/map-manager/",
-                label: "地图管理",
-            },
-        ],
+                image: '',
+                link: '/map-manager/',
+                label: '地图管理'
+            }
+        ]
     },
     {
-        desc: "抽象数据",
+        desc: '抽象数据',
         data: [
             {
-                image: "",
-                link: "/abstract-umi/",
-                label: "表格数据",
+                image: '',
+                link: '/abstract-umi/',
+                label: '表格数据'
             },
             {
-                image: "",
-                link: "/abstract-react/",
-                label: "react",
+                image: '',
+                link: '/abstract-react/',
+                label: 'react'
             },
             {
-                image: "",
-                link: "/abstract-vue/",
-                label: "vue",
-            },
-        ],
+                image: '',
+                link: '/abstract-vue/',
+                label: 'vue'
+            }
+        ]
     },
     {
-        desc: "聊天项目",
+        desc: '聊天项目',
         data: [
             {
-                image: "",
-                link: "/wechat-react/",
-                label: "AI聊天",
+                image: '',
+                link: '/wechat-react/',
+                label: 'AI聊天'
             },
             {
-                image: "",
-                link: "/wechat-vue/",
-                label: "通信工具",
-            },
-        ],
+                image: '',
+                link: '/wechat-vue/',
+                label: '通信工具'
+            }
+        ]
     },
     {
-        desc: "游戏项目",
+        desc: '游戏项目',
         data: [
             {
-                image: "",
-                link: "/jump/",
-                label: "跳一跳",
+                image: '',
+                link: '/jump/',
+                label: '跳一跳'
             },
             {
-                image: "",
-                link: "/flybird/",
-                label: "飞鸟游戏",
+                image: '',
+                link: '/flybird/',
+                label: '飞鸟游戏'
             },
             {
-                image: "",
-                link: "/elementsell/",
-                label: "外卖",
-            },
-        ],
+                image: '',
+                link: '/elementsell/',
+                label: '外卖'
+            }
+        ]
     },
     {
-        desc: "移动端",
+        desc: '移动端',
         data: [
             {
-                image: "",
-                link: "/force/",
-                label: "力图",
+                image: '',
+                link: '/force/',
+                label: '力图'
             },
             {
-                image: "",
-                link: "/managment/",
-                label: "managment",
+                image: '',
+                link: '/managment/',
+                label: 'managment'
             },
             {
-                image: "",
-                link: "/zhoubichuan-vue-ui/",
-                label: "vue-ui",
+                image: '',
+                link: '/zhoubichuan-vue-ui/',
+                label: 'vue-ui'
             },
             {
-                image: "",
-                link: "/zhoubichuan-react-ui/",
-                label: "react-ui",
-            },
-        ],
+                image: '',
+                link: '/zhoubichuan-react-ui/',
+                label: 'react-ui'
+            }
+        ]
     },
     {
-        desc: "智慧农业3.0",
+        desc: '智慧农业3.0',
         data: [
             {
-                image: "",
-                link: "/agricultural-machinery-working/",
-                label: "农机作业",
+                image: '',
+                link: '/agricultural-machinery-working/',
+                label: '农机作业'
             },
             {
-                image: "",
-                link: "/agricultural-iot/",
-                label: "农机iot",
+                image: '',
+                link: '/agricultural-iot/',
+                label: '农机iot'
             },
             {
-                image: "",
-                link: "/agricultural-machinery-network/",
-                label: "车联网",
-            },
-        ],
+                image: '',
+                link: '/agricultural-machinery-network/',
+                label: '车联网'
+            }
+        ]
     },
     {
-        desc: "智慧农业2.0",
+        desc: '智慧农业2.0',
         data: [
             {
-                image: "",
-                link: "/agricultural-smart-farm/",
-                label: "农场",
+                image: '',
+                link: '/agricultural-smart-farm/',
+                label: '农场'
             },
             {
-                image: "",
-                link: "/agricultural-smart-condition/",
-                label: "农情",
+                image: '',
+                link: '/agricultural-smart-condition/',
+                label: '农情'
             },
             {
-                image: "",
-                link: "/agricultural-smart-water/",
-                label: "灌溉",
+                image: '',
+                link: '/agricultural-smart-water/',
+                label: '灌溉'
             },
             {
-                image: "",
-                link: "/agricultural-smart-dispatch/",
-                label: "调度",
-            },
-        ],
+                image: '',
+                link: '/agricultural-smart-dispatch/',
+                label: '调度'
+            }
+        ]
     },
     {
-        desc: "智慧农业1.0",
+        desc: '智慧农业1.0',
         data: [
             {
-                image: "",
-                link: "/agricultural-smart/",
-                label: "智慧农业",
+                image: '',
+                link: '/agricultural-smart/',
+                label: '智慧农业'
             },
             {
-                image: "",
-                link: "/agricultural-smart-source/",
-                label: "溯源",
-            },
-        ],
-    },
+                image: '',
+                link: '/agricultural-smart-source/',
+                label: '溯源'
+            }
+        ]
+    }
 ];
 localStorage.projectNames = JSON.stringify(options);
 const data = reactive({
-    options: JSON.parse(localStorage.projectNames),
+    options: JSON.parse(localStorage.projectNames)
 });
 </script>
 
 <style lang="scss" scoped>
 @media screen and (max-width: 768px) {
-
     /* 移动端 */
 
     .title {
@@ -241,7 +240,9 @@ const data = reactive({
                 height: 280px;
                 border-radius: 16px;
                 padding: 20px;
-                box-shadow: 40px 40px 120px #bebebe, -40px -40px 120px #fff;
+                box-shadow:
+                    40px 40px 120px #bebebe,
+                    -40px -40px 120px #fff;
 
                 .box {
                     border: 2px solid transparent;
@@ -257,14 +258,15 @@ const data = reactive({
                         border-radius: 16px;
                         background-clip: padding-box, border-box;
                         background-origin: padding-box, border-box;
-                        background-image: linear-gradient(45deg,
-                                #e2eef1,
-                                rgba(205, 238, 255, 0.2) 99%),
-                            linear-gradient(45deg,
+                        background-image:
+                            linear-gradient(45deg, #e2eef1, rgba(205, 238, 255, 0.2) 99%),
+                            linear-gradient(
+                                45deg,
                                 rgb(160, 178, 183),
                                 rgba(82.00000271201134, 218.00000220537186, 255, 0.18000000715255737),
                                 rgba(82.00000271201134, 218.00000220537186, 255, 0.4000000059604645),
-                                rgba(82.00000271201134, 218.00000220537186, 255, 0.75));
+                                rgba(82.00000271201134, 218.00000220537186, 255, 0.75)
+                            );
                     }
 
                     .link {
@@ -288,20 +290,16 @@ const data = reactive({
                 }
             }
         }
-
     }
 }
 
 @media screen and (min-width: 769px) {
-
     /* 桌面端 */
     .title {
         font-size: 30px;
         font-weight: bold;
         line-height: 40px;
         padding-bottom: 20px;
-
-
     }
 
     .content {
@@ -322,7 +320,9 @@ const data = reactive({
                 height: 90px;
                 border-radius: 8px;
                 padding: 10px;
-                box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #fff;
+                box-shadow:
+                    20px 20px 60px #bebebe,
+                    -20px -20px 60px #fff;
 
                 .box {
                     border: 1px solid transparent;
@@ -338,14 +338,15 @@ const data = reactive({
                         border-radius: 8px;
                         background-clip: padding-box, border-box;
                         background-origin: padding-box, border-box;
-                        background-image: linear-gradient(45deg,
-                                #e2eef1,
-                                rgba(205, 238, 255, 0.2) 99%),
-                            linear-gradient(45deg,
+                        background-image:
+                            linear-gradient(45deg, #e2eef1, rgba(205, 238, 255, 0.2) 99%),
+                            linear-gradient(
+                                45deg,
                                 rgb(160, 178, 183),
                                 rgba(82.00000271201134, 218.00000220537186, 255, 0.18000000715255737),
                                 rgba(82.00000271201134, 218.00000220537186, 255, 0.4000000059604645),
-                                rgba(82.00000271201134, 218.00000220537186, 255, 0.75));
+                                rgba(82.00000271201134, 218.00000220537186, 255, 0.75)
+                            );
                     }
 
                     .link {
@@ -369,8 +370,6 @@ const data = reactive({
                 }
             }
         }
-
     }
-
 }
 </style>

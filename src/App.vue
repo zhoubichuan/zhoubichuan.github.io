@@ -2,18 +2,35 @@
     <el-config-provider namespace="base">
         <el-container class="main">
             <el-header class="head">
-                <img class="logo" width="40" height="40" style="margin-top: 10px; margin-right: 100px" alt="Vue logo"
-                    src="./assets/logo.png" />
-                <svg @click="handleShow" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
-                    viewBox="0 0 448 512" class="icon">
-                    <path fill="currentColor"
-                        d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z">
-                    </path>
+                <img
+                    class="logo"
+                    width="40"
+                    height="40"
+                    style="margin-top: 10px; margin-right: 100px"
+                    alt="Vue logo"
+                    src="./assets/logo.png"
+                />
+                <svg
+                    @click="handleShow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    role="img"
+                    viewBox="0 0 448 512"
+                    class="icon"
+                >
+                    <path
+                        fill="currentColor"
+                        d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
+                    ></path>
                 </svg>
                 <el-form :inline="true" :model="formInline">
                     <el-form-item label="选择子项目">
-                        <el-cascader :disabled="formInline.all" :options="options" @change="handleSelect"
-                            :show-all-levels="false" />
+                        <el-cascader
+                            :disabled="formInline.all"
+                            :options="options"
+                            @change="handleSelect"
+                            :show-all-levels="false"
+                        />
                     </el-form-item>
                     <el-form-item label="显示菜单">
                         <el-switch v-model="formInline.user"></el-switch>
@@ -31,9 +48,13 @@
                     <el-menu :router="true" default-active="/base" class="el-menu-vertical-demo">
                         <li class="menu-title">资料管理系统</li>
                         <el-menu-item-group :title="menus.title" v-for="(menus, index) in menusData" :key="index">
-                            <el-menu-item v-for="(n, i) in menus.menuItem" :key="i" :index="n.index"
-                                @click="handleShow">{{
-                                    n.title }}</el-menu-item>
+                            <el-menu-item
+                                v-for="(n, i) in menus.menuItem"
+                                :key="i"
+                                :index="n.index"
+                                @click="handleShow"
+                                >{{ n.title }}</el-menu-item
+                            >
                         </el-menu-item-group>
                     </el-menu>
                 </el-aside>
@@ -47,126 +68,126 @@
     </el-config-provider>
 </template>
 <script>
-import { reactive, toRefs, defineComponent, computed } from "vue";
+import { reactive, toRefs, defineComponent, computed } from 'vue';
 let defaultData = [
     {
-        title: "",
-        key: "base",
+        title: '',
+        key: 'base',
         menuItem: [
             {
-                index: "/base",
-                title: "知识图谱",
+                index: '/base',
+                title: '知识图谱'
             },
             {
-                index: "/base/about",
-                title: "文档资料",
-            },
-        ],
-    },
+                index: '/base/about',
+                title: '文档资料'
+            }
+        ]
+    }
 ];
-if (localStorage.projectType === "321456") {
+if (localStorage.projectType === '321456') {
     defaultData[0].menuItem.push({
-        index: "/base/project",
-        title: "线上项目",
+        index: '/base/project',
+        title: '线上项目'
     });
 }
 let targetArr = [
     {
-        title: "jump项目菜单",
-        key: "jump",
+        title: 'jump项目菜单',
+        key: 'jump',
         menuItem: [
             {
-                index: "/jump",
-                title: "页面1",
-            },
-        ],
+                index: '/jump',
+                title: '页面1'
+            }
+        ]
     },
     {
-        title: "froce项目菜单",
-        key: "force",
+        title: 'froce项目菜单',
+        key: 'force',
         menuItem: [
             {
-                index: "/force",
-                title: "页面1",
-            },
-        ],
+                index: '/force',
+                title: '页面1'
+            }
+        ]
     },
     {
-        title: "sub2项目菜单",
-        key: "sub2",
+        title: 'sub2项目菜单',
+        key: 'sub2',
         menuItem: [
             {
-                index: "/sub2",
-                title: "页面1",
+                index: '/sub2',
+                title: '页面1'
             },
             {
-                index: "/sub2/about2",
-                title: "页面2",
-            },
-        ],
+                index: '/sub2/about2',
+                title: '页面2'
+            }
+        ]
     },
     {
-        title: "resume项目菜单",
-        key: "resume",
+        title: 'resume项目菜单',
+        key: 'resume',
         menuItem: [
             {
-                index: "/resume",
-                title: "页面1",
+                index: '/resume',
+                title: '页面1'
             },
             {
-                index: "/resume/about3",
-                title: "页面2",
-            },
-        ],
-    },
+                index: '/resume/about3',
+                title: '页面2'
+            }
+        ]
+    }
 ];
 export default defineComponent({
     setup() {
-        let microOptions = JSON.parse(localStorage.microOptions || "{}");
+        let microOptions = JSON.parse(localStorage.microOptions || '{}');
         const options = Array.isArray(microOptions)
             ? microOptions
             : [
-                {
-                    value: "js",
-                    label: "js相关项目",
-                    children: [
-                        {
-                            value: "jump",
-                            label: "jump",
-                        },
-                    ],
-                },
-                {
-                    value: "react",
-                    label: "react相关项目",
-                    children: [
-                        {
-                            value: "sub2",
-                            label: "sub2",
-                        },
-                    ],
-                },
-                {
-                    value: "vue2.x",
-                    label: "vue2.x相关项目",
-                    children: [
-                        {
-                            value: "resume",
-                            label: "resume",
-                        },
-                    ],
-                },
-            ];
+                  {
+                      value: 'js',
+                      label: 'js相关项目',
+                      children: [
+                          {
+                              value: 'jump',
+                              label: 'jump'
+                          }
+                      ]
+                  },
+                  {
+                      value: 'react',
+                      label: 'react相关项目',
+                      children: [
+                          {
+                              value: 'sub2',
+                              label: 'sub2'
+                          }
+                      ]
+                  },
+                  {
+                      value: 'vue2.x',
+                      label: 'vue2.x相关项目',
+                      children: [
+                          {
+                              value: 'resume',
+                              label: 'resume'
+                          }
+                      ]
+                  }
+              ];
 
         const data = reactive({
             formInline: {
                 user: true,
                 all: true,
-                region: "",
-                type: localStorage.projectType || "",
+                region: '',
+                type: localStorage.projectType || ''
             },
             options,
-            show: false,
+            show: false
         });
         let menusData = computed(() => {
             if (data.formInline.all) {
@@ -177,9 +198,7 @@ export default defineComponent({
         });
         const handleSelect = (val) => {
             data.menusData = defaultData;
-            let target = JSON.parse(JSON.stringify(targetArr)).filter(
-                (item) => item.key === val[val.length - 1]
-            );
+            let target = JSON.parse(JSON.stringify(targetArr)).filter((item) => item.key === val[val.length - 1]);
             data.menusData = data.menusData.concat(target);
         };
         const handleShow = () => {
@@ -193,9 +212,9 @@ export default defineComponent({
             handleSelect,
             handleShow,
             handleChange,
-            menusData,
+            menusData
         };
-    },
+    }
 });
 </script>
 <style>
@@ -203,8 +222,6 @@ export default defineComponent({
     height: 100vh;
     overflow: hidden;
 }
-
-
 
 .base-header,
 .base-footer {
@@ -224,13 +241,12 @@ export default defineComponent({
     text-align: left;
 }
 
-
 body {
     margin: 0;
     padding: 0;
 }
 
-body>.base-container {
+body > .base-container {
     margin-bottom: 40px;
 }
 
@@ -262,9 +278,9 @@ body>.base-container {
         text-align: center;
     }
 
-
     /* 移动端 */
-    .head {}
+    .head {
+    }
 
     .logo {
         display: none;
@@ -305,7 +321,8 @@ body>.base-container {
     }
 
     /* 桌面端 */
-    .head {}
+    .head {
+    }
 
     .logo {
         display: block;

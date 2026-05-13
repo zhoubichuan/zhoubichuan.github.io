@@ -1,3 +1,1 @@
-export const Type = {
-  
-} as const;
+export const Type = {} as const;
