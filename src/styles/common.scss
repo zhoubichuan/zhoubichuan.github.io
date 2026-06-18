@@ -1,0 +1,198 @@
+@import './variables.scss';
+
+.page-container {
+    min-height: 100%;
+    padding: $spacing-lg;
+    box-sizing: border-box;
+    
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        padding: $spacing-md;
+    }
+}
+
+.page-title {
+    font-size: $font-size-xxl;
+    font-weight: bold;
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -$spacing-sm;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, $primary-color, $primary-light);
+        border-radius: $border-radius-sm;
+    }
+    
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        font-size: $font-size-xl;
+        margin-bottom: $spacing-md;
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+}
+
+.item-group {
+    background: $bg-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+    transition: transform $transition-normal, box-shadow $transition-normal;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-md;
+    }
+}
+
+.group-desc {
+    background: linear-gradient(135deg, $primary-color 0%, $primary-light 100%);
+    color: #fff;
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-lg;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    
+    &::before {
+        content: '';
+        width: 4px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: $border-radius-sm;
+    }
+    
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        font-size: $font-size-base;
+        padding: $spacing-sm $spacing-md;
+    }
+}
+
+.group-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $spacing-md;
+    gap: $spacing-md;
+}
+
+.card-box {
+    flex: 1;
+    min-width: 120px;
+    max-width: calc(25% - #{$spacing-md});
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    background: $bg-color;
+    transition: all $transition-normal;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, $primary-color, $primary-light);
+        transform: scaleX(0);
+        transition: transform $transition-normal;
+    }
+    
+    &:hover {
+        background: $bg-white;
+        box-shadow: $shadow-sm;
+        transform: translateY(-4px);
+        
+        &::before {
+            transform: scaleX(1);
+        }
+    }
+    
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        min-width: calc(50% - #{$spacing-sm});
+        max-width: calc(50% - #{$spacing-sm});
+        padding: $spacing-sm;
+    }
+}
+
+.card-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $text-primary;
+    width: 100%;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: $spacing-sm;
+    border-radius: $border-radius-md;
+    background: linear-gradient(135deg, rgba($primary-color, 0.1) 0%, rgba($primary-light, 0.1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.card-text {
+    font-size: $font-size-sm;
+    font-weight: 500;
+    text-align: center;
+    transition: color $transition-fast;
+    
+    .card-box:hover & {
+        color: $primary-color;
+    }
+    
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        font-size: $font-size-xs;
+    }
+}
+
+.copy-right {
+    text-align: center;
+    padding: $spacing-xl $spacing-md;
+    color: $text-secondary;
+    font-size: $font-size-xs;
+    
+    a {
+        color: $text-secondary;
+        text-decoration: none;
+        
+        &:hover {
+            color: $primary-color;
+            text-decoration: underline;
+        }
+    }
+    
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        padding: $spacing-lg $spacing-md;
+    }
+}
