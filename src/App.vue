@@ -323,25 +323,29 @@ defineExpose({
     width: 200px;
     background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
     flex-shrink: 0;
-    transition: transform $transition-normal, width $transition-normal;
+    transition: width $transition-normal;
     position: relative;
+    transform: translateX(0) !important;
     
-    @media screen and (max-width: $breakpoint-md - 1px) {
+    &:hover {
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: $breakpoint-md - 1px) {
+    .main-aside {
         position: fixed;
         left: 0;
         top: 60px;
         bottom: 0;
         z-index: 99;
-        transform: translateX(-100%);
+        transform: translateX(-100%) !important;
         width: 280px;
+        transition: transform $transition-normal;
         
         &.aside-visible {
-            transform: translateX(0);
+            transform: translateX(0) !important;
         }
-    }
-    
-    &:hover {
-        width: 220px;
     }
 }
 
