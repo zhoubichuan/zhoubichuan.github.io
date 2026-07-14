@@ -58,16 +58,26 @@
                             default-active="/base" 
                             class="side-menu"
                             :collapse="isMenuCollapsed"
+                            background-color="#ffffff"
+                            text-color="#1e293b"
+                            active-color="#4f46e5"
                         >
                             <div class="menu-header">
                                 <span v-if="!isMenuCollapsed" class="menu-title">资料管理系统</span>
                             </div>
-                            <el-menu-item-group 
-                                v-for="(group, groupIndex) in menusData" 
-                                :key="groupIndex"
-                                :title="group.title"
-                            >
+                            <template v-for="(group, groupIndex) in menusData" :key="groupIndex">
+                                <el-menu-item-group v-if="group.title" :title="group.title">
+                                    <el-menu-item
+                                        v-for="(item, itemIndex) in group.menuItem"
+                                        :key="itemIndex"
+                                        :index="item.index"
+                                        @click="handleMenuClick(item)"
+                                    >
+                                        <span>{{ item.title }}</span>
+                                    </el-menu-item>
+                                </el-menu-item-group>
                                 <el-menu-item
+                                    v-else
                                     v-for="(item, itemIndex) in group.menuItem"
                                     :key="itemIndex"
                                     :index="item.index"
@@ -75,7 +85,7 @@
                                 >
                                     <span>{{ item.title }}</span>
                                 </el-menu-item>
-                            </el-menu-item-group>
+                            </template>
                         </el-menu>
                     </el-aside>
                 </transition>
@@ -227,29 +237,35 @@ defineExpose({
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    font-family: $font-family;
 }
 
 .main-header {
-    background: linear-gradient(135deg, $primary-color 0%, $primary-light 100%);
-    color: #fff;
+    background: #ffffff;
     display: flex;
     align-items: center;
-    padding: 0 $spacing-lg;
-    box-shadow: $shadow-md;
+    padding: 0 $spacing-xl;
+    box-shadow: $shadow-sm;
     position: relative;
     z-index: 100;
+    height: 60px;
+    flex-shrink: 0;
+    border-bottom: 1px solid $border-color;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: $spacing-sm;
+    gap: $spacing-lg;
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: $border-radius-md;
+    background: $primary-gradient;
+    padding: $spacing-xs;
+    box-sizing: border-box;
     transition: transform $transition-normal;
     
     &:hover {
@@ -260,6 +276,7 @@ defineExpose({
 .logo-title {
     font-size: $font-size-lg;
     font-weight: 600;
+    color: $text-primary;
     display: none;
     
     @media screen and (min-width: $breakpoint-md) {
@@ -268,15 +285,18 @@ defineExpose({
 }
 
 .menu-toggle {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
     padding: $spacing-sm;
-    border-radius: $border-radius-sm;
+    border-radius: $border-radius-md;
     transition: all $transition-normal;
+    margin-right: $spacing-sm;
+    color: $text-secondary;
     
     &:hover {
-        background: rgba(255, 255, 255, 0.2);
+        background: $bg-hover;
+        color: $text-primary;
     }
     
     @media screen and (min-width: $breakpoint-md) {
@@ -288,27 +308,42 @@ defineExpose({
     margin-left: auto;
     display: none;
     
-    @media screen and (min-width: $breakpoint-md) {
+    @media screen and (min-width: $breakpoint-lg) {
         display: flex;
         align-items: center;
-        gap: $spacing-md;
+        gap: 32px;
     }
     
     :deep(.el-form-item) {
         margin-bottom: 0;
         
         :deep(.el-form-item__label) {
-            color: rgba(255, 255, 255, 0.9);
+            color: $text-regular;
             font-size: $font-size-sm;
+            padding-right: $spacing-sm;
         }
         
         :deep(.el-input),
         :deep(.el-cascader) {
-            width: 150px;
+            width: 140px;
+            
+            :deep(.el-input__wrapper) {
+                border-radius: $border-radius-md;
+                border: 1px solid $border-color;
+                
+                &:hover {
+                    border-color: $primary-light;
+                }
+                
+                &.is-focus {
+                    border-color: $primary-color;
+                    box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
+                }
+            }
         }
         
-        :deep(.el-switch__core) {
-            background: rgba(255, 255, 255, 0.3);
+        :deep(.el-switch) {
+            margin-left: $spacing-sm;
         }
     }
 }
@@ -320,16 +355,16 @@ defineExpose({
 }
 
 .main-aside {
-    width: 200px;
-    background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+    width: 220px;
+    background: #ffffff;
     flex-shrink: 0;
-    transition: width $transition-normal;
+    transition: width $transition-slow;
     position: relative;
     transform: translateX(0) !important;
-    
-    &:hover {
-        width: 220px;
-    }
+    border-right: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 @media screen and (max-width: $breakpoint-md - 1px) {
@@ -340,7 +375,7 @@ defineExpose({
         bottom: 0;
         z-index: 99;
         transform: translateX(-100%) !important;
-        width: 280px;
+        width: 260px;
         transition: transform $transition-normal;
         
         &.aside-visible {
@@ -350,43 +385,91 @@ defineExpose({
 }
 
 .menu-header {
-    padding: $spacing-lg $spacing-md;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: $spacing-xl;
+    border-bottom: 1px solid $border-color;
 }
 
 .menu-title {
     font-size: $font-size-lg;
     font-weight: 600;
-    color: #fff;
+    color: $text-primary;
 }
 
 .side-menu {
     background: transparent;
     border: none;
-    height: calc(100% - 60px);
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
+    padding: $spacing-md 0;
+    
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 2px;
+    }
     
     :deep(.el-menu-item-group) {
         :deep(.el-menu-item-group__title) {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: $font-size-xs;
-            padding: $spacing-sm $spacing-md;
+            color: $text-primary !important;
+            font-size: $font-size-xs !important;
+            padding: $spacing-xl $spacing-lg $spacing-sm !important;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700 !important;
+            border-left: 3px solid $primary-color;
+            margin-left: $spacing-md;
         }
     }
     
     :deep(.el-menu-item) {
-        color: rgba(255, 255, 255, 0.8);
-        border-radius: 0 $border-radius-md $border-radius-md 0;
-        margin: $spacing-xs 0;
-        transition: all $transition-fast;
+        color: $text-primary !important;
+        border-radius: $border-radius-md;
+        margin: $spacing-xs $spacing-lg;
+        transition: all $transition-normal;
+        position: relative;
+        background: transparent !important;
+        height: 44px;
+        line-height: 44px;
+        padding-left: $spacing-xl !important;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%) scaleY(0);
+            width: 3px;
+            height: 20px;
+            background: $primary-gradient;
+            border-radius: 0 2px 2px 0;
+            transition: transform $transition-normal;
+        }
         
         &:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba($primary-color, 0.05) !important;
+            color: $primary-color !important;
+            
+            &::before {
+                transform: translateY(-50%) scaleY(1);
+            }
         }
         
         &.is-active {
-            background: rgba($primary-color, 0.3);
-            color: #fff;
+            background: rgba($primary-color, 0.08) !important;
+            color: $primary-color !important;
+            font-weight: 600;
+            
+            &::before {
+                transform: translateY(-50%) scaleY(1);
+            }
         }
     }
 }
@@ -395,7 +478,20 @@ defineExpose({
     flex: 1;
     background: $bg-color;
     overflow-y: auto;
-    padding: $spacing-md;
+    padding: $spacing-xl;
+    
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 3px;
+    }
 }
 
 .slide-enter-active,
@@ -410,18 +506,21 @@ defineExpose({
 
 @media screen and (max-width: $breakpoint-md - 1px) {
     .main-header {
-        padding: 0 $spacing-md;
-        height: 60px;
+        padding: 0 $spacing-lg;
+        height: 56px;
     }
     
     .main-content {
-        padding: $spacing-sm;
+        padding: $spacing-lg;
     }
 }
 
-body {
+:global(body) {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: $font-family;
+    background: $bg-color;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 </style>

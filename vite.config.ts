@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
                         rootValue: 192, // 指定转换基准值，通常是设计稿宽度的1/10
                         propList: ['*'], // 可以从px转换为rem的属性，这里是所有属性
                         unitPrecision: 5, // 允许REM单位增长到的十进制数
-                        selectorBlackList: [], // 选择器黑名单，忽略转换的选择器
+                        selectorBlackList: ['.page-container', '.home-container'],
                         replace: true, // 替换包含rem的规则，而不是添加回退
                         mediaQuery: false, // 允许在媒体查询中转换px
                         minPixelValue: 1, // 设置要替换的最小像素值

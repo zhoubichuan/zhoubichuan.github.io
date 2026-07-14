@@ -2,44 +2,51 @@
 
 .page-container {
     min-height: 100%;
-    padding: $spacing-lg;
+    padding: 0;
     box-sizing: border-box;
-    
-    @media screen and (max-width: $breakpoint-md - 1px) {
-        padding: $spacing-md;
-    }
+    max-width: 1400Px;
+    margin: 0 auto;
+}
+
+.page-header {
+    text-align: center;
+    padding: 24Px 0 32Px;
+    margin-bottom: 16Px;
+    background: linear-gradient(180deg, rgba($primary-color, 0.04) 0%, transparent 100%);
+    border-radius: $border-radius-lg;
 }
 
 .page-title {
-    font-size: $font-size-xxl;
-    font-weight: bold;
-    color: $text-primary;
-    margin-bottom: $spacing-lg;
+    font-size: 48Px;
+    font-weight: 700;
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-align: center;
-    position: relative;
-    
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: -$spacing-sm;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 4px;
-        background: linear-gradient(90deg, $primary-color, $primary-light);
-        border-radius: $border-radius-sm;
-    }
-    
+    margin: 0 0 12Px;
+    letter-spacing: -1Px;
+
     @media screen and (max-width: $breakpoint-md - 1px) {
-        font-size: $font-size-xl;
-        margin-bottom: $spacing-md;
+        font-size: 32Px;
+    }
+}
+
+.page-subtitle {
+    font-size: 18Px;
+    color: $text-secondary;
+    text-align: center;
+    margin: 0;
+
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        font-size: 16Px;
     }
 }
 
 .content-section {
     display: flex;
     flex-direction: column;
-    gap: $spacing-lg;
+    gap: 24Px;
 }
 
 .item-group {
@@ -47,86 +54,88 @@
     border-radius: $border-radius-lg;
     box-shadow: $shadow-sm;
     overflow: hidden;
-    transition: transform $transition-normal, box-shadow $transition-normal;
-    
+    transition: box-shadow $transition-normal;
+    border: 1Px solid $border-light;
+
     &:hover {
-        transform: translateY(-2px);
         box-shadow: $shadow-md;
     }
 }
 
 .group-desc {
-    background: linear-gradient(135deg, $primary-color 0%, $primary-light 100%);
-    color: #fff;
-    padding: $spacing-md $spacing-lg;
-    font-size: $font-size-lg;
-    font-weight: 500;
+    background: $bg-color;
+    color: $text-primary;
+    padding: 16Px 24Px;
+    font-size: 20Px;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: $spacing-sm;
-    
+    gap: 12Px;
+    border-bottom: 1Px solid $border-light;
+
     &::before {
         content: '';
-        width: 4px;
-        height: 20px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: $border-radius-sm;
+        width: 4Px;
+        height: 24Px;
+        background: $primary-gradient;
+        border-radius: 0 2Px 2Px 0;
+        flex-shrink: 0;
     }
-    
+
     @media screen and (max-width: $breakpoint-md - 1px) {
-        font-size: $font-size-base;
-        padding: $spacing-sm $spacing-md;
+        padding: 14Px 20Px;
+        font-size: 18Px;
     }
 }
 
 .group-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    padding: $spacing-md;
-    gap: $spacing-md;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180Px, 1fr));
+    padding: 24Px;
+    gap: 20Px;
+
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        grid-template-columns: repeat(auto-fill, minmax(140Px, 1fr));
+        padding: 16Px;
+        gap: 14Px;
+    }
 }
 
 .card-box {
-    flex: 1;
-    min-width: 120px;
-    max-width: calc(25% - #{$spacing-md});
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: $spacing-md;
+    justify-content: center;
+    padding: 24Px 16Px;
+    min-height: 160Px;
     border-radius: $border-radius-md;
-    background: $bg-color;
+    background: $bg-white;
+    border: 1Px solid $border-light;
     transition: all $transition-normal;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    
+
     &::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, $primary-color, $primary-light);
+        height: 3Px;
+        background: $primary-gradient;
         transform: scaleX(0);
         transition: transform $transition-normal;
     }
-    
+
     &:hover {
-        background: $bg-white;
-        box-shadow: $shadow-sm;
-        transform: translateY(-4px);
-        
+        box-shadow: $shadow-md;
+        transform: translateY(-4Px);
+        border-color: rgba($primary-color, 0.15);
+
         &::before {
             transform: scaleX(1);
         }
-    }
-    
-    @media screen and (max-width: $breakpoint-md - 1px) {
-        min-width: calc(50% - #{$spacing-sm});
-        max-width: calc(50% - #{$spacing-sm});
-        padding: $spacing-sm;
     }
 }
 
@@ -137,62 +146,83 @@
     text-decoration: none;
     color: $text-primary;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .card-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: $spacing-sm;
+    width: 80Px;
+    height: 80Px;
+    margin-bottom: 14Px;
     border-radius: $border-radius-md;
-    background: linear-gradient(135deg, rgba($primary-color, 0.1) 0%, rgba($primary-light, 0.1) 100%);
+    background: linear-gradient(135deg, rgba($primary-color, 0.08) 0%, rgba($primary-light, 0.06) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    padding: 12Px;
+    box-sizing: border-box;
+    transition: all $transition-normal;
+
+    .card-box:hover & {
+        background: linear-gradient(135deg, rgba($primary-color, 0.14) 0%, rgba($primary-light, 0.1) 100%);
+        transform: scale(1.05);
+    }
+
     img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
-    
+
     @media screen and (max-width: $breakpoint-md - 1px) {
-        width: 40px;
-        height: 40px;
+        width: 64Px;
+        height: 64Px;
+        padding: 10Px;
     }
 }
 
 .card-text {
-    font-size: $font-size-sm;
-    font-weight: 500;
+    font-size: 18Px;
+    font-weight: 600;
     text-align: center;
+    line-height: 1.4;
     transition: color $transition-fast;
-    
+
     .card-box:hover & {
         color: $primary-color;
     }
-    
+
     @media screen and (max-width: $breakpoint-md - 1px) {
-        font-size: $font-size-xs;
+        font-size: 16Px;
     }
 }
 
 .copy-right {
     text-align: center;
-    padding: $spacing-xl $spacing-md;
-    color: $text-secondary;
-    font-size: $font-size-xs;
-    
+    padding: 40Px 16Px;
+
     a {
-        color: $text-secondary;
+        display: inline-flex;
+        align-items: center;
+        padding: 10Px 20Px;
+        font-size: 15Px;
+        font-weight: 500;
+        color: $primary-color;
+        background: rgba($primary-color, 0.06);
+        border: 1Px solid rgba($primary-color, 0.18);
+        border-radius: $border-radius-full;
         text-decoration: none;
-        
+        transition: all $transition-normal;
+
         &:hover {
-            color: $primary-color;
-            text-decoration: underline;
+            color: $primary-dark;
+            background: rgba($primary-color, 0.1);
+            border-color: rgba($primary-color, 0.35);
+            box-shadow: $shadow-sm;
         }
     }
-    
+
     @media screen and (max-width: $breakpoint-md - 1px) {
-        padding: $spacing-lg $spacing-md;
+        padding: 28Px 16Px;
     }
 }

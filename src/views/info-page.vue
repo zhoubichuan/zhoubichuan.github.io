@@ -1,6 +1,9 @@
 <template>
     <div class="page-container">
-        <div class="page-title">学习文档</div>
+        <div class="page-header">
+            <div class="page-title">学习文档</div>
+            <p class="page-subtitle">系统化整理的前端技术学习文档</p>
+        </div>
         <div class="content-section">
             <div class="item-group" v-for="(item, index) in options" :key="index">
                 <div class="group-desc">{{ item.desc }}</div>
@@ -15,6 +18,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="copy-right">
+            <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2022012824号-1</a>
         </div>
     </div>
 </template>
