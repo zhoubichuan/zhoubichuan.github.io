@@ -58,9 +58,9 @@
                             default-active="/base" 
                             class="side-menu"
                             :collapse="isMenuCollapsed"
-                            background-color="#ffffff"
-                            text-color="#1e293b"
-                            active-color="#4f46e5"
+                            background-color="transparent"
+                            text-color="#334155"
+                            active-color="#2563eb"
                         >
                             <div class="menu-header">
                                 <span v-if="!isMenuCollapsed" class="menu-title">资料管理系统</span>
@@ -89,6 +89,11 @@
                         </el-menu>
                     </el-aside>
                 </transition>
+                <div
+                    v-if="formInline.user && isMenuVisible"
+                    class="mobile-mask"
+                    @click="handleToggleMenu"
+                ></div>
                 <el-main class="main-content">
                     <router-view v-show="$route.name" />
                     <div id="subapp" v-show="!$route.name"></div>
@@ -238,19 +243,25 @@ defineExpose({
     display: flex;
     flex-direction: column;
     font-family: $font-family;
+    color: $text-primary;
+    background:
+        radial-gradient(circle at top left, rgba($primary-light, 0.14), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, $bg-color 34%, #eef4f8 100%);
 }
 
 .main-header {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(18px);
     display: flex;
     align-items: center;
-    padding: 0 $spacing-xl;
-    box-shadow: $shadow-sm;
-    position: relative;
+    padding: 0 $spacing-xxl;
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
+    position: sticky;
+    top: 0;
     z-index: 100;
-    height: 60px;
+    height: 68px;
     flex-shrink: 0;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid rgba(219, 227, 238, 0.78);
 }
 
 .header-left {
@@ -260,22 +271,27 @@ defineExpose({
 }
 
 .logo {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: $border-radius-md;
-    background: $primary-gradient;
-    padding: $spacing-xs;
+    background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        $primary-gradient border-box;
+    border: 1px solid transparent;
+    padding: 6px;
     box-sizing: border-box;
-    transition: transform $transition-normal;
+    box-shadow: 0 12px 28px rgba($primary-color, 0.15);
+    transition: transform $transition-normal, box-shadow $transition-normal;
     
     &:hover {
-        transform: scale(1.05);
+        transform: translateY(-1px);
+        box-shadow: 0 16px 32px rgba($primary-color, 0.2);
     }
 }
 
 .logo-title {
-    font-size: $font-size-lg;
-    font-weight: 600;
+    font-size: $font-size-xl;
+    font-weight: 700;
     color: $text-primary;
     display: none;
     
@@ -292,7 +308,7 @@ defineExpose({
     border-radius: $border-radius-md;
     transition: all $transition-normal;
     margin-right: $spacing-sm;
-    color: $text-secondary;
+    color: $text-regular;
     
     &:hover {
         background: $bg-hover;
@@ -301,6 +317,11 @@ defineExpose({
     
     @media screen and (min-width: $breakpoint-md) {
         display: none;
+    }
+
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        order: -1;
+        flex-shrink: 0;
     }
 }
 
@@ -311,25 +332,51 @@ defineExpose({
     @media screen and (min-width: $breakpoint-lg) {
         display: flex;
         align-items: center;
-        gap: 32px;
+        gap: $spacing-lg;
+        height: 40px;
     }
     
-    :deep(.el-form-item) {
+    :deep(.el-form-item),
+    :deep(.base-form-item) {
+        display: flex;
+        align-items: center;
+        height: 40px;
         margin-bottom: 0;
+        margin-right: 0;
         
-        :deep(.el-form-item__label) {
-            color: $text-regular;
+        :deep(.el-form-item__label),
+        :deep(.base-form-item__label) {
+            display: inline-flex;
+            align-items: center;
+            height: 32px;
+            line-height: 32px;
+            color: $text-secondary;
             font-size: $font-size-sm;
-            padding-right: $spacing-sm;
+            padding: 0 $spacing-sm 0 0;
+        }
+
+        :deep(.el-form-item__content),
+        :deep(.base-form-item__content) {
+            display: inline-flex;
+            align-items: center;
+            min-height: 32px;
+            line-height: 32px;
         }
         
         :deep(.el-input),
-        :deep(.el-cascader) {
-            width: 140px;
+        :deep(.base-input),
+        :deep(.el-cascader),
+        :deep(.base-cascader) {
+            width: 136px;
+            height: 32px;
             
-            :deep(.el-input__wrapper) {
+            :deep(.el-input__wrapper),
+            :deep(.base-input__wrapper) {
+                min-height: 32px;
                 border-radius: $border-radius-md;
                 border: 1px solid $border-color;
+                box-shadow: none;
+                background: rgba(255, 255, 255, 0.78);
                 
                 &:hover {
                     border-color: $primary-light;
@@ -342,8 +389,12 @@ defineExpose({
             }
         }
         
-        :deep(.el-switch) {
-            margin-left: $spacing-sm;
+        :deep(.el-switch),
+        :deep(.base-switch) {
+            height: 24px;
+            line-height: 24px;
+            margin-left: 0;
+            vertical-align: middle;
         }
     }
 }
@@ -352,16 +403,18 @@ defineExpose({
     flex: 1;
     display: flex;
     overflow: hidden;
+    min-height: 0;
 }
 
 .main-aside {
-    width: 220px;
-    background: #ffffff;
+    width: 236px;
+    background: rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(18px);
     flex-shrink: 0;
     transition: width $transition-slow;
     position: relative;
     transform: translateX(0) !important;
-    border-right: 1px solid $border-color;
+    border-right: 1px solid rgba(219, 227, 238, 0.78);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -371,12 +424,13 @@ defineExpose({
     .main-aside {
         position: fixed;
         left: 0;
-        top: 60px;
+        top: 60Px;
         bottom: 0;
         z-index: 99;
         transform: translateX(-100%) !important;
-        width: 260px;
+        width: 260Px;
         transition: transform $transition-normal;
+        box-shadow: 24Px 0 60Px rgba(15, 23, 42, 0.2);
         
         &.aside-visible {
             transform: translateX(0) !important;
@@ -384,14 +438,18 @@ defineExpose({
     }
 }
 
+.mobile-mask {
+    display: none;
+}
+
 .menu-header {
-    padding: $spacing-xl;
-    border-bottom: 1px solid $border-color;
+    padding: $spacing-xl $spacing-xl $spacing-lg;
+    border-bottom: 1px solid rgba(219, 227, 238, 0.72);
 }
 
 .menu-title {
     font-size: $font-size-lg;
-    font-weight: 600;
+    font-weight: 700;
     color: $text-primary;
 }
 
@@ -416,29 +474,33 @@ defineExpose({
         border-radius: 2px;
     }
     
-    :deep(.el-menu-item-group) {
-        :deep(.el-menu-item-group__title) {
-            color: $text-primary !important;
+    :deep(.el-menu-item-group),
+    :deep(.base-menu-item-group) {
+        :deep(.el-menu-item-group__title),
+        :deep(.base-menu-item-group__title) {
+            color: $text-secondary !important;
             font-size: $font-size-xs !important;
             padding: $spacing-xl $spacing-lg $spacing-sm !important;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 0;
             font-weight: 700 !important;
-            border-left: 3px solid $primary-color;
+            border-left: 3px solid $primary-light;
             margin-left: $spacing-md;
         }
     }
     
-    :deep(.el-menu-item) {
-        color: $text-primary !important;
+    :deep(.el-menu-item),
+    :deep(.base-menu-item) {
+        color: $text-regular !important;
         border-radius: $border-radius-md;
-        margin: $spacing-xs $spacing-lg;
+        margin: $spacing-xs $spacing-md;
         transition: all $transition-normal;
         position: relative;
         background: transparent !important;
-        height: 44px;
-        line-height: 44px;
+        height: 42px;
+        line-height: 42px;
         padding-left: $spacing-xl !important;
+        font-weight: 500;
         
         &::before {
             content: '';
@@ -447,14 +509,14 @@ defineExpose({
             top: 50%;
             transform: translateY(-50%) scaleY(0);
             width: 3px;
-            height: 20px;
+            height: 18px;
             background: $primary-gradient;
             border-radius: 0 2px 2px 0;
             transition: transform $transition-normal;
         }
         
         &:hover {
-            background: rgba($primary-color, 0.05) !important;
+            background: rgba($primary-color, 0.07) !important;
             color: $primary-color !important;
             
             &::before {
@@ -463,9 +525,10 @@ defineExpose({
         }
         
         &.is-active {
-            background: rgba($primary-color, 0.08) !important;
+            background:
+                linear-gradient(90deg, rgba($primary-color, 0.12), rgba($primary-light, 0.06)) !important;
             color: $primary-color !important;
-            font-weight: 600;
+            font-weight: 700;
             
             &::before {
                 transform: translateY(-50%) scaleY(1);
@@ -476,9 +539,13 @@ defineExpose({
 
 .main-content {
     flex: 1;
-    background: $bg-color;
+    background:
+        radial-gradient(circle at 88% 0%, rgba(#f59e0b, 0.12), transparent 28%),
+        radial-gradient(circle at 4% 100%, rgba($primary-light, 0.12), transparent 32%),
+        transparent;
     overflow-y: auto;
-    padding: $spacing-xl;
+    padding: $spacing-xxl;
+    min-width: 0;
     
     &::-webkit-scrollbar {
         width: 6px;
@@ -506,12 +573,33 @@ defineExpose({
 
 @media screen and (max-width: $breakpoint-md - 1px) {
     .main-header {
-        padding: 0 $spacing-lg;
-        height: 56px;
+        gap: 8Px;
+        padding: 0 12Px;
+        height: 60Px;
+    }
+
+    .header-left {
+        min-width: 0;
+        gap: 8Px;
+    }
+
+    .logo {
+        width: 34Px;
+        height: 34Px;
+        padding: 5Px;
     }
     
     .main-content {
-        padding: $spacing-lg;
+        padding: 16Px;
+    }
+
+    .mobile-mask {
+        display: block;
+        position: fixed;
+        inset: 60Px 0 0;
+        z-index: 98;
+        background: rgba(15, 23, 42, 0.34);
+        backdrop-filter: blur(3Px);
     }
 }
 
@@ -522,5 +610,9 @@ defineExpose({
     background: $bg-color;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+:global(*) {
+    box-sizing: border-box;
 }
 </style>

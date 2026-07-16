@@ -2,22 +2,36 @@
 
 .page-container {
     min-height: 100%;
-    padding: 0;
+    padding: 0 0 24Px;
     box-sizing: border-box;
-    max-width: 1400Px;
+    max-width: 1180Px;
     margin: 0 auto;
+
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        padding-bottom: 12Px;
+    }
 }
 
 .page-header {
     text-align: center;
-    padding: 24Px 0 32Px;
-    margin-bottom: 16Px;
-    background: linear-gradient(180deg, rgba($primary-color, 0.04) 0%, transparent 100%);
-    border-radius: $border-radius-lg;
+    padding: 40Px 24Px 36Px;
+    margin-bottom: 24Px;
+    background:
+        linear-gradient(135deg, rgba($primary-color, 0.1), rgba(#0f766e, 0.07) 48%, rgba(#f59e0b, 0.1)),
+        rgba(255, 255, 255, 0.72);
+    border: 1Px solid rgba(255, 255, 255, 0.78);
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-glow;
+    backdrop-filter: blur(14Px);
+
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        padding: 28Px 18Px 24Px;
+        margin-bottom: 16Px;
+    }
 }
 
 .page-title {
-    font-size: 48Px;
+    font-size: 42Px;
     font-weight: 700;
     background: $primary-gradient;
     -webkit-background-clip: text;
@@ -25,7 +39,8 @@
     background-clip: text;
     text-align: center;
     margin: 0 0 12Px;
-    letter-spacing: -1Px;
+    letter-spacing: 0;
+    line-height: 1.16;
 
     @media screen and (max-width: $breakpoint-md - 1px) {
         font-size: 32Px;
@@ -34,49 +49,53 @@
 
 .page-subtitle {
     font-size: 18Px;
-    color: $text-secondary;
+    color: $text-regular;
     text-align: center;
     margin: 0;
 
     @media screen and (max-width: $breakpoint-md - 1px) {
         font-size: 16Px;
+        line-height: 1.6;
     }
 }
 
 .content-section {
     display: flex;
     flex-direction: column;
-    gap: 24Px;
+    gap: 20Px;
 }
 
 .item-group {
-    background: $bg-white;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-md;
     overflow: hidden;
-    transition: box-shadow $transition-normal;
-    border: 1Px solid $border-light;
+    transition: transform $transition-normal, box-shadow $transition-normal, border-color $transition-normal;
+    border: 1Px solid rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12Px);
 
     &:hover {
-        box-shadow: $shadow-md;
+        transform: translateY(-2Px);
+        box-shadow: $shadow-lg;
+        border-color: rgba($primary-color, 0.16);
     }
 }
 
 .group-desc {
-    background: $bg-color;
+    background: linear-gradient(90deg, rgba($primary-color, 0.06), transparent);
     color: $text-primary;
-    padding: 16Px 24Px;
-    font-size: 20Px;
-    font-weight: 600;
+    padding: 18Px 24Px;
+    font-size: 18Px;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 12Px;
-    border-bottom: 1Px solid $border-light;
+    border-bottom: 1Px solid rgba($border-color, 0.76);
 
     &::before {
         content: '';
         width: 4Px;
-        height: 24Px;
+        height: 22Px;
         background: $primary-gradient;
         border-radius: 0 2Px 2Px 0;
         flex-shrink: 0;
@@ -90,14 +109,14 @@
 
 .group-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180Px, 1fr));
-    padding: 24Px;
-    gap: 20Px;
+    grid-template-columns: repeat(auto-fill, minmax(168Px, 1fr));
+    padding: 22Px;
+    gap: 16Px;
 
     @media screen and (max-width: $breakpoint-md - 1px) {
-        grid-template-columns: repeat(auto-fill, minmax(140Px, 1fr));
-        padding: 16Px;
-        gap: 14Px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 12Px;
+        gap: 12Px;
     }
 }
 
@@ -106,11 +125,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 24Px 16Px;
-    min-height: 160Px;
+    padding: 22Px 16Px;
+    min-height: 148Px;
     border-radius: $border-radius-md;
-    background: $bg-white;
-    border: 1Px solid $border-light;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.88));
+    border: 1Px solid rgba($border-color, 0.76);
     transition: all $transition-normal;
     cursor: pointer;
     position: relative;
@@ -122,7 +142,7 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 3Px;
+        height: 4Px;
         background: $primary-gradient;
         transform: scaleX(0);
         transition: transform $transition-normal;
@@ -131,11 +151,16 @@
     &:hover {
         box-shadow: $shadow-md;
         transform: translateY(-4Px);
-        border-color: rgba($primary-color, 0.15);
+        border-color: rgba($primary-color, 0.22);
 
         &::before {
             transform: scaleX(1);
         }
+    }
+
+    @media screen and (max-width: $breakpoint-md - 1px) {
+        min-height: 118Px;
+        padding: 16Px 10Px;
     }
 }
 
@@ -148,14 +173,18 @@
     width: 100%;
     position: relative;
     z-index: 1;
+    gap: 12Px;
 }
 
 .card-icon {
-    width: 80Px;
-    height: 80Px;
-    margin-bottom: 14Px;
+    width: 62Px;
+    height: 62Px;
+    margin-bottom: 0;
     border-radius: $border-radius-md;
-    background: linear-gradient(135deg, rgba($primary-color, 0.08) 0%, rgba($primary-light, 0.06) 100%);
+    background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        $primary-gradient border-box;
+    border: 1Px solid transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,7 +193,9 @@
     transition: all $transition-normal;
 
     .card-box:hover & {
-        background: linear-gradient(135deg, rgba($primary-color, 0.14) 0%, rgba($primary-light, 0.1) 100%);
+        background:
+            linear-gradient(#ffffff, #ffffff) padding-box,
+            $primary-gradient border-box;
         transform: scale(1.05);
     }
 
@@ -175,14 +206,14 @@
     }
 
     @media screen and (max-width: $breakpoint-md - 1px) {
-        width: 64Px;
-        height: 64Px;
+        width: 56Px;
+        height: 56Px;
         padding: 10Px;
     }
 }
 
 .card-text {
-    font-size: 18Px;
+    font-size: 17Px;
     font-weight: 600;
     text-align: center;
     line-height: 1.4;
@@ -207,9 +238,9 @@
         padding: 10Px 20Px;
         font-size: 15Px;
         font-weight: 500;
-        color: $primary-color;
-        background: rgba($primary-color, 0.06);
-        border: 1Px solid rgba($primary-color, 0.18);
+        color: $text-regular;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1Px solid rgba($border-color, 0.88);
         border-radius: $border-radius-full;
         text-decoration: none;
         transition: all $transition-normal;
